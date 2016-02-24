@@ -860,7 +860,7 @@ $ cd ~/ARDroneSDK
 <p><code>$ repo sync</code></p>
 
 <h3>
-<a id="user-content-Étape-2-le-build" class="anchor" href="#%C3%89tape-2-le-build" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Étape 2: Le Build</h3>
+<a id="user-content-Étape-2-le-build-et-la-mise-en-place-des-dépendances" class="anchor" href="#%C3%89tape-2-le-build-et-la-mise-en-place-des-d%C3%A9pendances" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Étape 2: Le Build et la mise en place des dépendances</h3>
 
 <h4>
 <a id="user-content-pour-une-plateforme-unix" class="anchor" href="#pour-une-plateforme-unix" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Pour une plateforme Unix</h4>
@@ -875,7 +875,7 @@ $ ./build.sh -p Unix-forall -t build-sdk-j
 On peut à présent faire fonctionner les exemples fournis avec le SDK qu'on peut trouver dans le répertoire <code>~/ARDroneSDK/packages/Samples/Unix</code>.</p>
 
 <p>A ce jour, les instructions décrites sur le <a href="http://developer.parrot.com/docs/bebop/?c#general-build">site des développeurs Parrot</a> pour faire fonctionner les exemples du SDK, sont sans issue, du moins pour Unix.
-Les "Makefiles" des exemples sous Unix n'étant pas à jour par rapport à l'architecture du SDK, il faudra y effectuer quelques modifications, et faire  ensuite quelques builds atomiques de Librairies manquantes.
+Les "Makefiles" des exemples sous Unix n'étant pas à jour par rapport à l'architecture du SDK, il faudra y effectuer quelques modifications, et faire  ensuite quelques builds atomiques pour les librairies manquantes.
 Focalisons nous à présent sur les manipulations à faire pour l'exemple "Jumping Sumo Piloting".</p>
 
 <p>Avec votre éditeur de texte favoris, ouvrez le Makefile situé à cet emplacement
@@ -928,7 +928,65 @@ $ make install
 <h4>
 <a id="user-content-pour-une-plateforme-android" class="anchor" href="#pour-une-plateforme-android" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Pour une plateforme Android</h4>
 
-<p><a href="http://developer.parrot.com/docs/bebop/#android">http://developer.parrot.com/docs/bebop/#android</a></p>
+<p>Pour un build Android (IDE Android sur Unix) il faut :</p>
+
+<ul>
+<li>un JDK avec Java 6(1.6) minimum</li>
+<li>
+<a href="http://developer.android.com/sdk/installing/index.html">Android SDK</a> et <a href="http://developer.android.com/ndk/index.html">Android NDK</a>
+</li>
+<li>Déclarer les variables d'environnement <code>ANDROID_SDK_PATH</code> et 
+<code>ANDROID_NDK_PATH</code> pour pointer sur les répertoires correspondants aux outils respectifs.</li>
+</ul>
+
+<p>Nous utiliserons <a href="http://developer.android.com/sdk/index.html#top">Android Studio</a>) pour notre exemple. C'est un bundle qui contient de base Android SDK et Android NDK.</p>
+
+<h5>
+<a id="user-content-installer-android-studio" class="anchor" href="#installer-android-studio" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Installer Android Studio</h5>
+
+<p>Télécharger <a href="http://developer.android.com/sdk/index.html#Other">Android Studio</a> à la racine de votre <code>home/user</code>. Dézippez <code>android-studio-ide-141.2456560-linux.zip</code> puis dans un terminal, faites :</p>
+
+<pre><code>$ cd ~/android-studio/bin/
+$ ./studio.sh
+</code></pre>
+
+<p>Android studio vous indiquera qu'il vous manque Android SDK. Faites <code>next</code> pour l'installer.</p>
+
+<p><a href="/home/rbary/Parrot-SDK/images/parrot/install_android_sdk.png" target="_blank"><img src="/home/rbary/Parrot-SDK/images/parrot/install_android_sdk.png" alt="Install Android SDK" style="max-width:100%;"></a></p>
+
+<p>Vous pouvez choisir l'emplacement qui vous convient; Notons qu'il est préférable de l'installer à l'extérieur de android-studio
+Puis vous faites <code>finish</code>.</p>
+
+<h5>
+<a id="user-content-déclarer-les-variables-denvironnement" class="anchor" href="#d%C3%A9clarer-les-variables-denvironnement" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Déclarer les variables d'environnement</h5>
+
+<p>Android studio sera prêt à être utilisé, mais vous pouvez fermer la fenêtre.
+On donc Android SDK et Android NDK installés respectivement aux emplacements 
+<code>/home/rbary/Android/SDK</code> et 
+<code>/home/rbary/android-studio/plugins/android-ndk/lib</code> .
+On renseigne les variables d'environnement nécessaires (<code>ANDROID_SDK_PATH</code> et 
+<code>ANDROID_NDK_PATH</code>) avec ces chemins dans le fichier /etc/environnement en root comme ceci:</p>
+
+<p><a href="/home/rbary/Parrot-SDK/images/parrot/android_sdk_ndk_path.png" target="_blank"><img src="/home/rbary/Parrot-SDK/images/parrot/android_sdk_ndk_path.png" alt="Android SDK NDK Path" style="max-width:100%;"></a></p>
+
+<p>Ensuite <code>$ source /etc/environnement</code>.</p>
+
+<p>Puis on vérifie, qu'elles ont été déclarées:</p>
+
+<p><a href="/home/rbary/Parrot-SDK/images/parrot/android_sdk_ndk_path_check.png" target="_blank"><img src="/home/rbary/Parrot-SDK/images/parrot/android_sdk_ndk_path_check.png" alt="Android SDK NDK Path Check" style="max-width:100%;"></a></p>
+
+<p>On peut dès lors builder notre Parrot SDK pour Android. On refait les mêmes manipulations de l'étape 1 en donnant un autre nom au répertoire qui va recevoir le SDK. <code>ARDroneSDK-Android</code> par exemple.</p>
+
+<pre><code>$ mkdir ~/ARDroneSDK-Android
+$ cd ~/ARDroneSDK-Android
+$ repo init -u https://github.com/Parrot-Developers/arsdk_manifests.git
+$ repo sync
+</code></pre>
+
+<p>Puis on fait le Build:</p>
+
+<pre><code>$ ./build.sh -p Android-forall -t build-sdk -j
+</code></pre>
 
 <h3>
 <a id="user-content-Étape-3-utilisation-du-sdk" class="anchor" href="#%C3%89tape-3-utilisation-du-sdk" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Étape 3: Utilisation du SDK</h3>
