@@ -11,13 +11,13 @@ Il faut entendre par "contrôler" le fait d'effectuer les actions suivantes :
 + Faire du mapping 3D
 
 
-![JumpingSumo_RollingSpider](images/parrot/jumpingsumorollingspider.jpg)
+![JumpingSumo_RollingSpider](https://raw.githubusercontent.com/rbary/ParrotSDK_Undergrowth/gh-pages/images/parrot/jumpingsumorollingspider.jpg)
 
 
 **Exemple d'utilisation du Parrot SDK**: l'application FreeFlight3 qu'il est recommandé d'installer sous Android ou iOS lors de l'achat d'un drone ou minidrone, utilise l'ARDroneSDK3.
 
 
-![freeflight3](images/parrot/freeflight.jpg)
+![freeflight3](https://raw.githubusercontent.com/rbary/ParrotSDK_Undergrowth/gh-pages/images/parrot/freeflight.jpg)
 
 
 
@@ -148,7 +148,7 @@ Vous remarquerez dans les lignes précédentes du Makefile que,
 *Problème* : La librairie `libardiscovery` est manquante dans le répertoire 
 `~/ARDroneSDK/out/Unix-base/staging/usr/lib` qui contient l'ensemble des librairies qui ont été construites pour la plateforme Unix lors du Build complet du SDK.
 
-![libardiscovery](images/parrot/libardiscovery_miss.png)
+![libardiscovery](https://raw.githubusercontent.com/rbary/ParrotSDK_Undergrowth/gh-pages/images/parrot/libardiscovery_miss.png)
 
 *Solution* : Faire un build élémentaire pour cette librairie.
 
@@ -168,7 +168,7 @@ Il faut renseigner pour l'argument `--prefix` l'emplacement où l'on souhaite in
 
 Le résultat attendu est le suivant :
 
-![libardiscovery](images/parrot/libardiscovery_lib_include.png)
+![libardiscovery](https://raw.githubusercontent.com/rbary/ParrotSDK_Undergrowth/gh-pages/images/parrot/libardiscovery_lib_include.png)
 
 `libardiscovery` est bien installé dans le répertoire 
 `~/ARDroneSDK/out/Unix-base/staging/usr/lib` et les headers correspondants (qui pourront être utilisés par d'autres librairies) le sont aussi dans le répertoire `~/ARDroneSDK/out/Unix-base/staging/usr/include`
@@ -192,7 +192,7 @@ $ ./studio.sh
 ```
 Android studio vous indiquera qu'il vous manque Android SDK. Faites `next` pour l'installer.
 
-![Install Android SDK](images/parrot/install_android_sdk.png)
+![Install Android SDK](https://raw.githubusercontent.com/rbary/ParrotSDK_Undergrowth/gh-pages/images/parrot/install_android_sdk.png)
 
 Vous pouvez choisir l'emplacement qui vous convient; Notons qu'il est préférable de l'installer à l'extérieur de android-studio
 Puis vous faites `finish`.
@@ -216,7 +216,7 @@ Ensuite `$ source /etc/environnement`.
 
 Puis on vérifie, qu'elles ont été déclarées:
 
-![Android SDK NDK Path Check](images/parrot/android_sdk_ndk_path_check.png)
+![Android SDK NDK Path Check](https://raw.githubusercontent.com/rbary/ParrotSDK_Undergrowth/gh-pages/images/parrot/android_sdk_ndk_path_check.png)
 
 On peut dès lors builder notre Parrot SDK pour Android. On refait les mêmes manipulations de l'étape 1 en donnant un autre nom au répertoire qui va recevoir le SDK. `ARDroneSDK-Android` par exemple.
 
@@ -237,7 +237,7 @@ Maintenant que notre SDK est installé correctement, on peut à présent l'utili
 *JumpingSumoPiloting*.
 On peut remarquer que dans le Makefile, que notre exemple dépend d'une librairie externe : [`libncurses` ](http://arnaud-feltz.developpez.com/tutoriels/ncurses/?page=introduction#LI-A)
 
-![lncurses](images/parrot/lncurses.png)
+![lncurses](https://raw.githubusercontent.com/rbary/ParrotSDK_Undergrowth/gh-pages/images/parrot/lncurses.png)
 
 On installe libncurses si nécessaire:
 ```
@@ -255,7 +255,7 @@ $ ./JumpingSumoPiloting
 
 Si après le `make` vous avez une erreur comme sur l'image qui suit :
 
-![](images/parrot/usrbinlink.png)
+![](https://raw.githubusercontent.com/rbary/ParrotSDK_Undergrowth/gh-pages/images/parrot/usrbinlink.png)
 
 Il faudra créer un lien symbolique dans `/usr/lib` qui pointera vers chacune des librairies nécessaires pour *JumpingSumoPiloting* comme ceci:
 
