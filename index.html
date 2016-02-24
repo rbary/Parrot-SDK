@@ -1,730 +1,25 @@
-<!DOCTYPE html><html><head><meta charset="utf-8"><style>@font-face {
-  font-family: octicons-anchor;
-  src: url(data:font/woff;charset=utf-8;base64,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) format('woff');
-}
-
-* {
-    box-sizing: border-box;
-}
-
-body {
-    width: 980px;
-    margin-right: auto;
-    margin-left: auto;
-}
-
-body .markdown-body {
-    padding: 45px;
-    border: 1px solid #ddd;
-    border-radius: 3px;
-    word-wrap: break-word;
-}
-
-pre {
-    font: 12px Consolas, "Liberation Mono", Menlo, Courier, monospace;
-}
-
-.markdown-body {
-  -webkit-text-size-adjust: 100%;
-  text-size-adjust: 100%;
-  color: #333;
-  font-family: "Helvetica Neue", Helvetica, "Segoe UI", Arial, freesans, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-  font-size: 16px;
-  line-height: 1.6;
-  word-wrap: break-word;
-}
-
-.markdown-body a {
-  background-color: transparent;
-}
-
-.markdown-body a:active,
-.markdown-body a:hover {
-  outline: 0;
-}
-
-.markdown-body strong {
-  font-weight: bold;
-}
-
-.markdown-body h1 {
-  font-size: 2em;
-  margin: 0.67em 0;
-}
-
-.markdown-body img {
-  border: 0;
-}
-
-.markdown-body hr {
-  box-sizing: content-box;
-  height: 0;
-}
-
-.markdown-body pre {
-  overflow: auto;
-}
-
-.markdown-body code,
-.markdown-body kbd,
-.markdown-body pre {
-  font-family: monospace, monospace;
-  font-size: 1em;
-}
-
-.markdown-body input {
-  color: inherit;
-  font: inherit;
-  margin: 0;
-}
-
-.markdown-body html input[disabled] {
-  cursor: default;
-}
-
-.markdown-body input {
-  line-height: normal;
-}
-
-.markdown-body input[type="checkbox"] {
-  box-sizing: border-box;
-  padding: 0;
-}
-
-.markdown-body table {
-  border-collapse: collapse;
-  border-spacing: 0;
-}
-
-.markdown-body td,
-.markdown-body th {
-  padding: 0;
-}
-
-.markdown-body input {
-  font: 13px / 1.4 Helvetica, arial, nimbussansl, liberationsans, freesans, clean, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-}
-
-.markdown-body a {
-  color: #4078c0;
-  text-decoration: none;
-}
-
-.markdown-body a:hover,
-.markdown-body a:active {
-  text-decoration: underline;
-}
-
-.markdown-body hr {
-  height: 0;
-  margin: 15px 0;
-  overflow: hidden;
-  background: transparent;
-  border: 0;
-  border-bottom: 1px solid #ddd;
-}
-
-.markdown-body hr:before {
-  display: table;
-  content: "";
-}
-
-.markdown-body hr:after {
-  display: table;
-  clear: both;
-  content: "";
-}
-
-.markdown-body h1,
-.markdown-body h2,
-.markdown-body h3,
-.markdown-body h4,
-.markdown-body h5,
-.markdown-body h6 {
-  margin-top: 15px;
-  margin-bottom: 15px;
-  line-height: 1.1;
-}
-
-.markdown-body h1 {
-  font-size: 30px;
-}
-
-.markdown-body h2 {
-  font-size: 21px;
-}
-
-.markdown-body h3 {
-  font-size: 16px;
-}
-
-.markdown-body h4 {
-  font-size: 14px;
-}
-
-.markdown-body h5 {
-  font-size: 12px;
-}
-
-.markdown-body h6 {
-  font-size: 11px;
-}
-
-.markdown-body blockquote {
-  margin: 0;
-}
-
-.markdown-body ul,
-.markdown-body ol {
-  padding: 0;
-  margin-top: 0;
-  margin-bottom: 0;
-}
-
-.markdown-body ol ol,
-.markdown-body ul ol {
-  list-style-type: lower-roman;
-}
-
-.markdown-body ul ul ol,
-.markdown-body ul ol ol,
-.markdown-body ol ul ol,
-.markdown-body ol ol ol {
-  list-style-type: lower-alpha;
-}
-
-.markdown-body dd {
-  margin-left: 0;
-}
-
-.markdown-body code {
-  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
-  font-size: 12px;
-}
-
-.markdown-body pre {
-  margin-top: 0;
-  margin-bottom: 0;
-  font: 12px Consolas, "Liberation Mono", Menlo, Courier, monospace;
-}
-
-.markdown-body .select::-ms-expand {
-  opacity: 0;
-}
-
-.markdown-body .octicon {
-  font: normal normal normal 16px/1 octicons-anchor;
-  display: inline-block;
-  text-decoration: none;
-  text-rendering: auto;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
-
-.markdown-body .octicon-link:before {
-  content: '\f05c';
-}
-
-.markdown-body:before {
-  display: table;
-  content: "";
-}
-
-.markdown-body:after {
-  display: table;
-  clear: both;
-  content: "";
-}
-
-.markdown-body>*:first-child {
-  margin-top: 0 !important;
-}
-
-.markdown-body>*:last-child {
-  margin-bottom: 0 !important;
-}
-
-.markdown-body a:not([href]) {
-  color: inherit;
-  text-decoration: none;
-}
-
-.markdown-body .anchor {
-  display: inline-block;
-  padding-right: 2px;
-  margin-left: -18px;
-}
-
-.markdown-body .anchor:focus {
-  outline: none;
-}
-
-.markdown-body h1,
-.markdown-body h2,
-.markdown-body h3,
-.markdown-body h4,
-.markdown-body h5,
-.markdown-body h6 {
-  margin-top: 1em;
-  margin-bottom: 16px;
-  font-weight: bold;
-  line-height: 1.4;
-}
-
-.markdown-body h1 .octicon-link,
-.markdown-body h2 .octicon-link,
-.markdown-body h3 .octicon-link,
-.markdown-body h4 .octicon-link,
-.markdown-body h5 .octicon-link,
-.markdown-body h6 .octicon-link {
-  color: #000;
-  vertical-align: middle;
-  visibility: hidden;
-}
-
-.markdown-body h1:hover .anchor,
-.markdown-body h2:hover .anchor,
-.markdown-body h3:hover .anchor,
-.markdown-body h4:hover .anchor,
-.markdown-body h5:hover .anchor,
-.markdown-body h6:hover .anchor {
-  text-decoration: none;
-}
-
-.markdown-body h1:hover .anchor .octicon-link,
-.markdown-body h2:hover .anchor .octicon-link,
-.markdown-body h3:hover .anchor .octicon-link,
-.markdown-body h4:hover .anchor .octicon-link,
-.markdown-body h5:hover .anchor .octicon-link,
-.markdown-body h6:hover .anchor .octicon-link {
-  visibility: visible;
-}
-
-.markdown-body h1 {
-  padding-bottom: 0.3em;
-  font-size: 2.25em;
-  line-height: 1.2;
-  border-bottom: 1px solid #eee;
-}
-
-.markdown-body h1 .anchor {
-  line-height: 1;
-}
-
-.markdown-body h2 {
-  padding-bottom: 0.3em;
-  font-size: 1.75em;
-  line-height: 1.225;
-  border-bottom: 1px solid #eee;
-}
-
-.markdown-body h2 .anchor {
-  line-height: 1;
-}
-
-.markdown-body h3 {
-  font-size: 1.5em;
-  line-height: 1.43;
-}
-
-.markdown-body h3 .anchor {
-  line-height: 1.2;
-}
-
-.markdown-body h4 {
-  font-size: 1.25em;
-}
-
-.markdown-body h4 .anchor {
-  line-height: 1.2;
-}
-
-.markdown-body h5 {
-  font-size: 1em;
-}
-
-.markdown-body h5 .anchor {
-  line-height: 1.1;
-}
-
-.markdown-body h6 {
-  font-size: 1em;
-  color: #777;
-}
-
-.markdown-body h6 .anchor {
-  line-height: 1.1;
-}
-
-.markdown-body p,
-.markdown-body blockquote,
-.markdown-body ul,
-.markdown-body ol,
-.markdown-body dl,
-.markdown-body table,
-.markdown-body pre {
-  margin-top: 0;
-  margin-bottom: 16px;
-}
-
-.markdown-body hr {
-  height: 4px;
-  padding: 0;
-  margin: 16px 0;
-  background-color: #e7e7e7;
-  border: 0 none;
-}
-
-.markdown-body ul,
-.markdown-body ol {
-  padding-left: 2em;
-}
-
-.markdown-body ul ul,
-.markdown-body ul ol,
-.markdown-body ol ol,
-.markdown-body ol ul {
-  margin-top: 0;
-  margin-bottom: 0;
-}
-
-.markdown-body li>p {
-  margin-top: 16px;
-}
-
-.markdown-body dl {
-  padding: 0;
-}
-
-.markdown-body dl dt {
-  padding: 0;
-  margin-top: 16px;
-  font-size: 1em;
-  font-style: italic;
-  font-weight: bold;
-}
-
-.markdown-body dl dd {
-  padding: 0 16px;
-  margin-bottom: 16px;
-}
-
-.markdown-body blockquote {
-  padding: 0 15px;
-  color: #777;
-  border-left: 4px solid #ddd;
-}
-
-.markdown-body blockquote>:first-child {
-  margin-top: 0;
-}
-
-.markdown-body blockquote>:last-child {
-  margin-bottom: 0;
-}
-
-.markdown-body table {
-  display: block;
-  width: 100%;
-  overflow: auto;
-  word-break: normal;
-  word-break: keep-all;
-}
-
-.markdown-body table th {
-  font-weight: bold;
-}
-
-.markdown-body table th,
-.markdown-body table td {
-  padding: 6px 13px;
-  border: 1px solid #ddd;
-}
-
-.markdown-body table tr {
-  background-color: #fff;
-  border-top: 1px solid #ccc;
-}
-
-.markdown-body table tr:nth-child(2n) {
-  background-color: #f8f8f8;
-}
-
-.markdown-body img {
-  max-width: 100%;
-  box-sizing: content-box;
-  background-color: #fff;
-}
-
-.markdown-body code {
-  padding: 0;
-  padding-top: 0.2em;
-  padding-bottom: 0.2em;
-  margin: 0;
-  font-size: 85%;
-  background-color: rgba(0,0,0,0.04);
-  border-radius: 3px;
-}
-
-.markdown-body code:before,
-.markdown-body code:after {
-  letter-spacing: -0.2em;
-  content: "\00a0";
-}
-
-.markdown-body pre>code {
-  padding: 0;
-  margin: 0;
-  font-size: 100%;
-  word-break: normal;
-  white-space: pre;
-  background: transparent;
-  border: 0;
-}
-
-.markdown-body .highlight {
-  margin-bottom: 16px;
-}
-
-.markdown-body .highlight pre,
-.markdown-body pre {
-  padding: 16px;
-  overflow: auto;
-  font-size: 85%;
-  line-height: 1.45;
-  background-color: #f7f7f7;
-  border-radius: 3px;
-}
-
-.markdown-body .highlight pre {
-  margin-bottom: 0;
-  word-break: normal;
-}
-
-.markdown-body pre {
-  word-wrap: normal;
-}
-
-.markdown-body pre code {
-  display: inline;
-  max-width: initial;
-  padding: 0;
-  margin: 0;
-  overflow: initial;
-  line-height: inherit;
-  word-wrap: normal;
-  background-color: transparent;
-  border: 0;
-}
-
-.markdown-body pre code:before,
-.markdown-body pre code:after {
-  content: normal;
-}
-
-.markdown-body kbd {
-  display: inline-block;
-  padding: 3px 5px;
-  font-size: 11px;
-  line-height: 10px;
-  color: #555;
-  vertical-align: middle;
-  background-color: #fcfcfc;
-  border: solid 1px #ccc;
-  border-bottom-color: #bbb;
-  border-radius: 3px;
-  box-shadow: inset 0 -1px 0 #bbb;
-}
-
-.markdown-body .pl-c {
-  color: #969896;
-}
-
-.markdown-body .pl-c1,
-.markdown-body .pl-s .pl-v {
-  color: #0086b3;
-}
-
-.markdown-body .pl-e,
-.markdown-body .pl-en {
-  color: #795da3;
-}
-
-.markdown-body .pl-s .pl-s1,
-.markdown-body .pl-smi {
-  color: #333;
-}
-
-.markdown-body .pl-ent {
-  color: #63a35c;
-}
-
-.markdown-body .pl-k {
-  color: #a71d5d;
-}
-
-.markdown-body .pl-pds,
-.markdown-body .pl-s,
-.markdown-body .pl-s .pl-pse .pl-s1,
-.markdown-body .pl-sr,
-.markdown-body .pl-sr .pl-cce,
-.markdown-body .pl-sr .pl-sra,
-.markdown-body .pl-sr .pl-sre {
-  color: #183691;
-}
-
-.markdown-body .pl-v {
-  color: #ed6a43;
-}
-
-.markdown-body .pl-id {
-  color: #b52a1d;
-}
-
-.markdown-body .pl-ii {
-  background-color: #b52a1d;
-  color: #f8f8f8;
-}
-
-.markdown-body .pl-sr .pl-cce {
-  color: #63a35c;
-  font-weight: bold;
-}
-
-.markdown-body .pl-ml {
-  color: #693a17;
-}
-
-.markdown-body .pl-mh,
-.markdown-body .pl-mh .pl-en,
-.markdown-body .pl-ms {
-  color: #1d3e81;
-  font-weight: bold;
-}
-
-.markdown-body .pl-mq {
-  color: #008080;
-}
-
-.markdown-body .pl-mi {
-  color: #333;
-  font-style: italic;
-}
-
-.markdown-body .pl-mb {
-  color: #333;
-  font-weight: bold;
-}
-
-.markdown-body .pl-md {
-  background-color: #ffecec;
-  color: #bd2c00;
-}
-
-.markdown-body .pl-mi1 {
-  background-color: #eaffea;
-  color: #55a532;
-}
-
-.markdown-body .pl-mdr {
-  color: #795da3;
-  font-weight: bold;
-}
-
-.markdown-body .pl-mo {
-  color: #1d3e81;
-}
-
-.markdown-body kbd {
-  display: inline-block;
-  padding: 3px 5px;
-  font: 11px Consolas, "Liberation Mono", Menlo, Courier, monospace;
-  line-height: 10px;
-  color: #555;
-  vertical-align: middle;
-  background-color: #fcfcfc;
-  border: solid 1px #ccc;
-  border-bottom-color: #bbb;
-  border-radius: 3px;
-  box-shadow: inset 0 -1px 0 #bbb;
-}
-
-.markdown-body .plan-price-unit {
-  color: #767676;
-  font-weight: normal;
-}
-
-.markdown-body .task-list-item {
-  list-style-type: none;
-}
-
-.markdown-body .task-list-item+.task-list-item {
-  margin-top: 3px;
-}
-
-.markdown-body .task-list-item input {
-  margin: 0 0.35em 0.25em -1.6em;
-  vertical-align: middle;
-}
-
-.markdown-body .plan-choice {
-  padding: 15px;
-  padding-left: 40px;
-  display: block;
-  border: 1px solid #e0e0e0;
-  position: relative;
-  font-weight: normal;
-  background-color: #fafafa;
-}
-
-.markdown-body .plan-choice.open {
-  background-color: #fff;
-}
-
-.markdown-body .plan-choice.open .plan-choice-seat-breakdown {
-  display: block;
-}
-
-.markdown-body .plan-choice-free {
-  border-radius: 3px 3px 0 0;
-}
-
-.markdown-body .plan-choice-paid {
-  border-radius: 0 0 3px 3px;
-  border-top: 0;
-  margin-bottom: 20px;
-}
-
-.markdown-body .plan-choice-radio {
-  position: absolute;
-  left: 15px;
-  top: 18px;
-}
-
-.markdown-body .plan-choice-exp {
-  color: #999;
-  font-size: 12px;
-  margin-top: 5px;
-}
-
-.markdown-body .plan-choice-seat-breakdown {
-  margin-top: 10px;
-  display: none;
-}
-
-.markdown-body :checked+.radio-label {
-  z-index: 1;
-  position: relative;
-  border-color: #4078c0;
-}
-</style><title>index</title></head><body><article class="markdown-body"><h2>
-<a id="user-content-parrot-sdk-prise-en-main-et-possibilités-dutilisation" class="anchor" href="#parrot-sdk-prise-en-main-et-possibilit%C3%A9s-dutilisation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Parrot SDK: Prise en main et possibilités d'utilisation</h2>
-
-<p>ARDroneSDK3 est à ce jour la dernière version du Parrot SDK, publiée en novembre 2014. Pour faire simple, ce SDK permet de contrôler la plupart des drones et/ou minidrones de Parrot (Rolling Spider, Bebop Drone, Skycontroller, Jumping Sumo).
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>Parrot SDK Undergrowth by rbary</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">Parrot SDK Undergrowth</h1>
+      <h2 class="project-tagline">Prise en main et possibilités d&#39;utilisation du Parrot SDK</h2>
+      <a href="https://github.com/rbary/ParrotSDK_Undergrowth" class="btn">View on GitHub</a>
+      <a href="https://github.com/rbary/ParrotSDK_Undergrowth/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/rbary/ParrotSDK_Undergrowth/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
+
+    <section class="main-content">
+      <p>ARDroneSDK3 est à ce jour la dernière version du Parrot SDK, publiée en novembre 2014. Pour faire simple, ce SDK permet de contrôler la plupart des drones et/ou minidrones de Parrot (Rolling Spider, Bebop Drone, Skycontroller, Jumping Sumo).
 Il faut entendre par "contrôler" le fait d'effectuer les actions suivantes : </p>
 
 <ul>
@@ -737,23 +32,23 @@ Il faut entendre par "contrôler" le fait d'effectuer les actions suivantes : </
 <li>Faire du mapping 3D</li>
 </ul>
 
-<p><a href="/home/rbary/Parrot-SDK/images/parrot/jumpingsumorollingspider.jpg" target="_blank"><img src="/home/rbary/Parrot-SDK/images/parrot/jumpingsumorollingspider.jpg" alt="JumpingSumo_RollingSpider" style="max-width:100%;"></a></p>
+<p><img src="https://raw.githubusercontent.com/rbary/ParrotSDK_Undergrowth/gh-pages/images/parrot/jumpingsumorollingspider.jpg" alt="JumpingSumo_RollingSpider"></p>
 
 <p><strong>Exemple d'utilisation du Parrot SDK</strong>: l'application FreeFlight3 qu'il est recommandé d'installer sous Android ou iOS lors de l'achat d'un drone ou minidrone, utilise l'ARDroneSDK3.</p>
 
-<p><a href="/home/rbary/Parrot-SDK/images/parrot/freeflight.jpg" target="_blank"><img src="/home/rbary/Parrot-SDK/images/parrot/freeflight.jpg" alt="freeflight3" style="max-width:100%;"></a></p>
+<p><img src="https://raw.githubusercontent.com/rbary/ParrotSDK_Undergrowth/gh-pages/images/parrot/freeflight.jpg" alt="freeflight3"></p>
 
 <blockquote>
 <p>Est-il possible de créer sa propre application de contrôle de drones avec ce SDK ?"</p>
 </blockquote>
 
-<p>Oui, tout à fait, c'est tout l'intérêt de la mise à disposition des sources du SDK. Si vous avez des compétences en développement d'applications mobiles (Android ou iOS), il vous suffira de créer un projet de développement mobile (Android Studio, Plugin Eclipse ADT, XCode), ensuite de mettre en place les dépendances nécessaires pour avoir la main sur les librairies du SDK et enfin les utiliser à votre escient dans le code de votre application mobile.
+<p>Oui, tout à fait, c'est tout l'intérêt de la mise à disposition des sources du SDK. Si vous avez des compétences en développement d'applications mobiles (Android ou iOS), il vous suffira de créer un projet de développement mobile (Android Studio, Plugin Eclipse ADT, XCode), ensuite de mettre en place les dépendances nécessaires pour avoir la main sur les bibliothèques du SDK et enfin les utiliser à votre escient dans le code de votre application mobile.
 Il est aussi possible d'implémenter une application de type client lourd en C permettant de contrôler le drone depuis un laptop (ici sous xubuntu 14.04) </p>
 
 <p>En effet, les sources du SDK sont hébergés dans un répertoire Github sous licence BSD. Ce répertoire contient principalement : </p>
 
 <ul>
-<li>Les sources des différentes librairies qui constituent le SDK</li>
+<li>Les sources des différentes bibliothèques qui constituent le SDK</li>
 <li>Des utilitaires de Build</li>
 <li>Un manifest</li>
 <li>Quelques exemples d'utilisation du SDK pour chaque plateforme (Unix, Android, iOS)</li>
@@ -762,14 +57,14 @@ Il est aussi possible d'implémenter une application de type client lourd en C p
 <p>On peut retrouver l'organisation complète du SDK par <a href="http://developer.parrot.com/docs/bebop/?c#organisation">ici</a></p>
 
 <h2>
-<a id="user-content-comment-utiliser-le-sdk-" class="anchor" href="#comment-utiliser-le-sdk-" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Comment utiliser le SDK ?</h2>
+<a id="comment-utiliser-le-sdk-" class="anchor" href="#comment-utiliser-le-sdk-" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Comment utiliser le SDK ?</h2>
 
-<p>Le SDK est principalement écrit en C, et fourni donc des librairies pour les Systèmes Unix, Android et iOS respectivement utilisables en C, Java et Objective C.</p>
+<p>Le SDK est principalement écrit en C, et fourni donc des bibliothèques pour les Systèmes Unix, Android et iOS respectivement utilisables en C, Java et Objective C.</p>
 
 <p><strong>NB</strong>: Les manipulations pour ce billet concernent les plateformes Unix et Android.</p>
 
 <h3>
-<a id="user-content-outils-pré-requis" class="anchor" href="#outils-pr%C3%A9-requis" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Outils pré-requis</h3>
+<a id="outils-pré-requis" class="anchor" href="#outils-pr%C3%A9-requis" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Outils pré-requis</h3>
 
 <p>Il faut commencer par installer au préalable les outils suivants:</p>
 
@@ -783,17 +78,17 @@ Il est aussi possible d'implémenter une application de type client lourd en C p
 <li><a href="#nasm">nasm</a></li>
 </ul>
 
-<p><a name="user-content-curl"></a></p>
+<p><a name="curl"></a></p>
 
 <h4>
-<a id="user-content-installer-curl" class="anchor" href="#installer-curl" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Installer curl</h4>
+<a id="installer-curl" class="anchor" href="#installer-curl" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Installer curl</h4>
 
 <p>Dans un terminal, Faire <code>$ sudo apt-get install curl</code></p>
 
-<p><a name="user-content-repo"></a></p>
+<p><a name="repo"></a></p>
 
 <h4>
-<a id="user-content-installer-repo-tool" class="anchor" href="#installer-repo-tool" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Installer Repo tool</h4>
+<a id="installer-repo-tool" class="anchor" href="#installer-repo-tool" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Installer Repo tool</h4>
 
 <pre><code>$ mkdir ~/bin
 $ PATH=~/bin:$PATH
@@ -802,9 +97,9 @@ $ chmod a+x ~/bin/repo
 </code></pre>
 
 <h4>
-<a id="user-content-installer-git" class="anchor" href="#installer-git" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Installer git</h4>
+<a id="installer-git" class="anchor" href="#installer-git" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Installer git</h4>
 
-<p><a name="user-content-git"></a>
+<p><a name="git"></a>
 Faire <code>$ sudo apt-get insall git-core</code>
 Ensuite effectuer la config minimale</p>
 
@@ -812,38 +107,38 @@ Ensuite effectuer la config minimale</p>
 $ git config --global user.email "jhon@doe.com"
 </code></pre>
 
-<p><a name="user-content-automake"></a></p>
+<p><a name="automake"></a></p>
 
 <h4>
-<a id="user-content-installer-automake" class="anchor" href="#installer-automake" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Installer automake</h4>
+<a id="installer-automake" class="anchor" href="#installer-automake" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Installer automake</h4>
 
 <p>Automake étant inclu dans autoconf, on installe simplement autoconf</p>
 
 <p><code>$ sudo apt-get install autoconf</code></p>
 
-<p><a name="user-content-libtool"></a></p>
+<p><a name="libtool"></a></p>
 
 <h4>
-<a id="user-content-installer-libtool" class="anchor" href="#installer-libtool" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Installer libtool</h4>
+<a id="installer-libtool" class="anchor" href="#installer-libtool" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Installer libtool</h4>
 
 <p><code>$ sudo apt-get install libtool</code></p>
 
-<p><a name="user-content-yasm"></a></p>
+<p><a name="yasm"></a></p>
 
 <h4>
-<a id="user-content-installer-yasm" class="anchor" href="#installer-yasm" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Installer yasm</h4>
+<a id="installer-yasm" class="anchor" href="#installer-yasm" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Installer yasm</h4>
 
 <p><code>$ sudo apt-get install yasm</code></p>
 
-<p><a name="user-content-nasm"></a></p>
+<p><a name="nasm"></a></p>
 
 <h4>
-<a id="user-content-installer-nasm" class="anchor" href="#installer-nasm" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Installer nasm</h4>
+<a id="installer-nasm" class="anchor" href="#installer-nasm" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Installer nasm</h4>
 
 <p><code>$ sudo apt-get install nasm</code></p>
 
 <h3>
-<a id="user-content-Étape-1-récupération-des-sources-avec-repo" class="anchor" href="#%C3%89tape-1-r%C3%A9cup%C3%A9ration-des-sources-avec-repo" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Étape 1: Récupération des sources avec Repo</h3>
+<a id="Étape-1-récupération-des-sources-avec-repo" class="anchor" href="#%C3%89tape-1-r%C3%A9cup%C3%A9ration-des-sources-avec-repo" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Étape 1: Récupération des sources avec Repo</h3>
 
 <p>1.Créer un dossier vide dans lequel on va mettre en place notre SDK</p>
 
@@ -860,10 +155,10 @@ $ cd ~/ARDroneSDK
 <p><code>$ repo sync</code></p>
 
 <h3>
-<a id="user-content-Étape-2-le-build-et-la-mise-en-place-des-dépendances" class="anchor" href="#%C3%89tape-2-le-build-et-la-mise-en-place-des-d%C3%A9pendances" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Étape 2: Le Build et la mise en place des dépendances</h3>
+<a id="Étape-2-le-build-et-la-mise-en-place-des-dépendances" class="anchor" href="#%C3%89tape-2-le-build-et-la-mise-en-place-des-d%C3%A9pendances" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Étape 2: Le Build et la mise en place des dépendances</h3>
 
 <h4>
-<a id="user-content-pour-une-plateforme-unix" class="anchor" href="#pour-une-plateforme-unix" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Pour une plateforme Unix</h4>
+<a id="pour-une-plateforme-unix" class="anchor" href="#pour-une-plateforme-unix" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Pour une plateforme Unix</h4>
 
 <p>Les manipulation pour un build sous Unix sont les suivantes :</p>
 
@@ -875,7 +170,7 @@ $ ./build.sh -p Unix-forall -t build-sdk-j
 On peut à présent faire fonctionner les exemples fournis avec le SDK qu'on peut trouver dans le répertoire <code>~/ARDroneSDK/packages/Samples/Unix</code>.</p>
 
 <p>A ce jour, les instructions décrites sur le <a href="http://developer.parrot.com/docs/bebop/?c#general-build">site des développeurs Parrot</a> pour faire fonctionner les exemples du SDK, sont sans issue, du moins pour Unix.
-Les "Makefiles" des exemples sous Unix n'étant pas à jour par rapport à l'architecture du SDK, il faudra y effectuer quelques modifications, et faire  ensuite quelques builds atomiques pour les librairies manquantes.
+Les "Makefiles" des exemples sous Unix n'étant pas à jour par rapport à l'architecture du SDK, il faudra y effectuer quelques modifications, et faire  ensuite quelques builds atomiques pour les bibliothèques manquantes.
 Focalisons nous à présent sur les manipulations à faire pour l'exemple "Jumping Sumo Piloting".</p>
 
 <p>Avec votre éditeur de texte favoris, ouvrez le Makefile situé à cet emplacement
@@ -893,17 +188,17 @@ LIBS_DBG=-L$(SDK_DIR)/out/Unix-base/staging/usr/lib -larsal_dbg -larcommands_dbg
 </code></pre>
 
 <p>Vous remarquerez dans les lignes précédentes du Makefile que, 
-<em>JumpingSumoPiloting</em> aura besoin des librairies <code>libarsal</code>,<code>libarcommands</code>,
+<em>JumpingSumoPiloting</em> aura besoin des bibliothèques <code>libarsal</code>,<code>libarcommands</code>,
 <code>libarnetwork</code>,<code>libarnetworkal</code> et <code>libardiscovery</code> pour fonctionner.</p>
 
-<p><em>Problème</em> : La librairie <code>libardiscovery</code> est manquante dans le répertoire 
-<code>~/ARDroneSDK/out/Unix-base/staging/usr/lib</code> qui contient l'ensemble des librairies qui ont été construites pour la plateforme Unix lors du Build complet du SDK.</p>
+<p><em>Problème</em> : La bibliothèque <code>libardiscovery</code> est manquante dans le répertoire 
+<code>~/ARDroneSDK/out/Unix-base/staging/usr/lib</code> qui contient l'ensemble des bibliothèques qui ont été construites pour la plateforme Unix lors du Build complet du SDK.</p>
 
-<p><a href="/home/rbary/Parrot-SDK/images/parrot/libardiscovery_miss.png" target="_blank"><img src="/home/rbary/Parrot-SDK/images/parrot/libardiscovery_miss.png" alt="libardiscovery" style="max-width:100%;"></a></p>
+<p><img src="https://raw.githubusercontent.com/rbary/ParrotSDK_Undergrowth/gh-pages/images/parrot/libardiscovery_miss.png" alt="libardiscovery"></p>
 
-<p><em>Solution</em> : Faire un build élémentaire pour cette librairie.</p>
+<p><em>Solution</em> : Faire un build élémentaire pour cette bibliothèque.</p>
 
-<p>Placez vous dans le répertoire <code>~/ARDroneSDK/package/libARDiscovery</code> qui contient les sources de notre librairie manquante puis vous faites :</p>
+<p>Placez vous dans le répertoire <code>~/ARDroneSDK/package/libARDiscovery</code> qui contient les sources de notre bibliothèque manquante puis vous faites :</p>
 
 <pre><code>$ cd Build
 $ ./bootstrap
@@ -913,20 +208,20 @@ $ make
 $ make install
 </code></pre>
 
-<p>Il faut renseigner pour l'argument <code>--prefix</code> l'emplacement où l'on souhaite installer la libraire. Attention il faut donner un chemin absolu comme nous l'avons fait. On peut voir que notre librairie dépend des includes (headers) de <code>libARSAL</code> situés à cet emplacement 
+<p>Il faut renseigner pour l'argument <code>--prefix</code> l'emplacement où l'on souhaite installer la bibliothèque. Attention il faut donner un chemin absolu comme nous l'avons fait. On peut voir que notre bibliothèque dépend des includes (headers) de <code>libARSAL</code> situés à cet emplacement 
 <code>~/ARDroneSDK/out/Unix-base/staging/usr/include</code></p>
 
 <p>Le résultat attendu est le suivant :</p>
 
-<p><a href="/home/rbary/Parrot-SDK/images/parrot/libardiscovery_lib_include.png" target="_blank"><img src="/home/rbary/Parrot-SDK/images/parrot/libardiscovery_lib_include.png" alt="libardiscovery" style="max-width:100%;"></a></p>
+<p><img src="https://raw.githubusercontent.com/rbary/ParrotSDK_Undergrowth/gh-pages/images/parrot/libardiscovery_lib_include.png" alt="libardiscovery"></p>
 
 <p><code>libardiscovery</code> est bien installé dans le répertoire 
-<code>~/ARDroneSDK/out/Unix-base/staging/usr/lib</code> et les headers correspondants (qui pourront être utilisés par d'autres librairies) le sont aussi dans le répertoire <code>~/ARDroneSDK/out/Unix-base/staging/usr/include</code></p>
+<code>~/ARDroneSDK/out/Unix-base/staging/usr/lib</code> et les headers correspondants (qui pourront être utilisés par d'autres bibliothèques) le sont aussi dans le répertoire <code>~/ARDroneSDK/out/Unix-base/staging/usr/include</code></p>
 
-<p>Remarque : Le répertoire <code>~/ARDroneSDK/package/</code> en plus de contenir des exemples de fonctionnement du SDK, comprend également les sources de toutes les librairies du SDK. S'il vous manque, une librairie pour un exemple donné il vous suffira de refaire la manipulation précédente pour la librairie concernée.</p>
+<p>Remarque : Le répertoire <code>~/ARDroneSDK/package/</code> en plus de contenir des exemples de fonctionnement du SDK, comprend également les sources de toutes les bibliothèques du SDK. S'il vous manque, une bibliothèque pour un exemple donné il vous suffira de refaire la manipulation précédente pour la bibliothèque concernée.</p>
 
 <h4>
-<a id="user-content-pour-une-plateforme-android" class="anchor" href="#pour-une-plateforme-android" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Pour une plateforme Android</h4>
+<a id="pour-une-plateforme-android" class="anchor" href="#pour-une-plateforme-android" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Pour une plateforme Android</h4>
 
 <p>Pour un build Android (IDE Android sur Unix) il faut :</p>
 
@@ -939,12 +234,12 @@ $ make install
 <code>ANDROID_NDK_PATH</code> pour pointer sur les répertoires correspondants aux outils respectifs.</li>
 </ul>
 
-<p>Nous utiliserons <a href="http://developer.android.com/sdk/index.html#top">Android Studio</a>) pour notre exemple. C'est un bundle qui contient de base Android SDK et Android NDK.</p>
+<p>Nous utiliserons <a href="http://developer.android.com/sdk/index.html#top">Android Studio</a>) pour notre exemple. C'est un bundle avec lequel on peut avoir de base Android SDK.</p>
 
 <h5>
-<a id="user-content-installer-android-studio" class="anchor" href="#installer-android-studio" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Installer Android Studio</h5>
+<a id="installer-android-studio" class="anchor" href="#installer-android-studio" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Installer Android Studio</h5>
 
-<p>Télécharger <a href="http://developer.android.com/sdk/index.html#Other">Android Studio</a> à la racine de votre <code>home/user</code>. Dézippez <code>android-studio-ide-141.2456560-linux.zip</code> puis dans un terminal, faites :</p>
+<p>Télécharger <a href="http://developer.android.com/sdk/index.html#Other">Android Studio</a> à la racine de votre répertoire personnel. Dézippez <code>android-studio-ide-141.2456560-linux.zip</code> puis dans un terminal, faites :</p>
 
 <pre><code>$ cd ~/android-studio/bin/
 $ ./studio.sh
@@ -952,28 +247,34 @@ $ ./studio.sh
 
 <p>Android studio vous indiquera qu'il vous manque Android SDK. Faites <code>next</code> pour l'installer.</p>
 
-<p><a href="/home/rbary/Parrot-SDK/images/parrot/install_android_sdk.png" target="_blank"><img src="/home/rbary/Parrot-SDK/images/parrot/install_android_sdk.png" alt="Install Android SDK" style="max-width:100%;"></a></p>
+<p><img src="https://raw.githubusercontent.com/rbary/ParrotSDK_Undergrowth/gh-pages/images/parrot/install_android_sdk.png" alt="Install Android SDK"></p>
 
 <p>Vous pouvez choisir l'emplacement qui vous convient; Notons qu'il est préférable de l'installer à l'extérieur de android-studio
 Puis vous faites <code>finish</code>.</p>
 
 <h5>
-<a id="user-content-déclarer-les-variables-denvironnement" class="anchor" href="#d%C3%A9clarer-les-variables-denvironnement" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Déclarer les variables d'environnement</h5>
+<a id="installer-android-ndk" class="anchor" href="#installer-android-ndk" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Installer Android NDK</h5>
+
+<p>Android NDK est un ensemble d'outils permettant d'implémenter une partie d'une application avec du code natif C ou C++. Nous installerons Android NDK à la racine de notre répertoire personnel.
+Commencez par télécharger le paquet correspondant depuis ce <a href="http://developer.android.com/ndk/downloads/index.html">lien</a> et suivez les instructions d'installation</p>
+
+<h5>
+<a id="déclarer-les-variables-denvironnement" class="anchor" href="#d%C3%A9clarer-les-variables-denvironnement" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Déclarer les variables d'environnement</h5>
 
 <p>Android studio sera prêt à être utilisé, mais vous pouvez fermer la fenêtre.
-On donc Android SDK et Android NDK installés respectivement aux emplacements 
+On a donc Android SDK et Android NDK installés respectivement aux emplacements 
 <code>/home/rbary/Android/SDK</code> et 
-<code>/home/rbary/android-studio/plugins/android-ndk/lib</code> .
+<code>/home/rbary/</code> .
 On renseigne les variables d'environnement nécessaires (<code>ANDROID_SDK_PATH</code> et 
 <code>ANDROID_NDK_PATH</code>) avec ces chemins dans le fichier /etc/environnement en root comme ceci:</p>
 
-<p><a href="/home/rbary/Parrot-SDK/images/parrot/android_sdk_ndk_path.png" target="_blank"><img src="/home/rbary/Parrot-SDK/images/parrot/android_sdk_ndk_path.png" alt="Android SDK NDK Path" style="max-width:100%;"></a></p>
+<p><img src="images/parrot/android_sdk_ndk_path.png" alt="Android SDK NDK Path"></p>
 
 <p>Ensuite <code>$ source /etc/environnement</code>.</p>
 
 <p>Puis on vérifie, qu'elles ont été déclarées:</p>
 
-<p><a href="/home/rbary/Parrot-SDK/images/parrot/android_sdk_ndk_path_check.png" target="_blank"><img src="/home/rbary/Parrot-SDK/images/parrot/android_sdk_ndk_path_check.png" alt="Android SDK NDK Path Check" style="max-width:100%;"></a></p>
+<p><img src="https://raw.githubusercontent.com/rbary/ParrotSDK_Undergrowth/gh-pages/images/parrot/android_sdk_ndk_path_check.png" alt="Android SDK NDK Path Check"></p>
 
 <p>On peut dès lors builder notre Parrot SDK pour Android. On refait les mêmes manipulations de l'étape 1 en donnant un autre nom au répertoire qui va recevoir le SDK. <code>ARDroneSDK-Android</code> par exemple.</p>
 
@@ -989,17 +290,17 @@ $ repo sync
 </code></pre>
 
 <h3>
-<a id="user-content-Étape-3-utilisation-du-sdk" class="anchor" href="#%C3%89tape-3-utilisation-du-sdk" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Étape 3: Utilisation du SDK</h3>
+<a id="Étape-3-utilisation-du-sdk" class="anchor" href="#%C3%89tape-3-utilisation-du-sdk" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Étape 3: Utilisation du SDK</h3>
 
 <h4>
-<a id="user-content-exemple-dutilisation-sous-unix--jumpingsumopiloting" class="anchor" href="#exemple-dutilisation-sous-unix--jumpingsumopiloting" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Exemple d'utilisation sous Unix : <em>JumpingSumoPiloting</em>
+<a id="exemple-dutilisation-sous-unix--jumpingsumopiloting" class="anchor" href="#exemple-dutilisation-sous-unix--jumpingsumopiloting" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Exemple d'utilisation sous Unix : <em>JumpingSumoPiloting</em>
 </h4>
 
 <p>Maintenant que notre SDK est installé correctement, on peut à présent l'utiliser. Nous nous contenterons pour le moment de faire fonctionner l'un des exemples d'utilisation livré avec le SDK en l’occurrence 
 <em>JumpingSumoPiloting</em>.
-On peut remarquer que dans le Makefile, que notre exemple dépend d'une librairie externe : <a href="http://arnaud-feltz.developpez.com/tutoriels/ncurses/?page=introduction#LI-A"><code>libncurses</code> </a></p>
+On peut remarquer que dans le Makefile, que notre exemple dépend d'une bibliothèque externe : <a href="http://arnaud-feltz.developpez.com/tutoriels/ncurses/?page=introduction#LI-A"><code>libncurses</code> </a></p>
 
-<p><a href="/home/rbary/Parrot-SDK/images/parrot/lncurses.png" target="_blank"><img src="/home/rbary/Parrot-SDK/images/parrot/lncurses.png" alt="lncurses" style="max-width:100%;"></a></p>
+<p><img src="https://raw.githubusercontent.com/rbary/ParrotSDK_Undergrowth/gh-pages/images/parrot/lncurses.png" alt="lncurses"></p>
 
 <p>On installe libncurses si nécessaire:</p>
 
@@ -1016,9 +317,9 @@ $ ./JumpingSumoPiloting
 
 <p>Si après le <code>make</code> vous avez une erreur comme sur l'image qui suit :</p>
 
-<p><a href="/home/rbary/Parrot-SDK/images/parrot/usrbinlink.png" target="_blank"><img src="/home/rbary/Parrot-SDK/images/parrot/usrbinlink.png" alt="" style="max-width:100%;"></a></p>
+<p><img src="https://raw.githubusercontent.com/rbary/ParrotSDK_Undergrowth/gh-pages/images/parrot/usrbinlink.png" alt=""></p>
 
-<p>Il faudra créer un lien symbolique dans <code>/usr/lib</code> qui pointera vers chacune des librairies nécessaires pour <em>JumpingSumoPiloting</em> comme ceci:</p>
+<p>Il faudra créer un lien symbolique dans <code>/usr/lib</code> qui pointera vers chacune des bibliothèques nécessaires pour <em>JumpingSumoPiloting</em> comme ceci:</p>
 
 <pre><code>sudo ln -s ~/ARDroneSDK/out/Unix-base/staging/usr/lib/[nom_de_lib].so 
 /usr/lib/[nom_de_lib].so
@@ -1049,12 +350,12 @@ $ ./JumpingSumoPiloting
 <li>afficher l'état de la batterie du minidrone dans une IHM</li>
 </ul>
 
-<p>Le tableau qui suit fait un récapitulatif des services fournis par les différentes librairies du SDK qui sont utilisées par <em>JumpingSumoPiloting</em></p>
+<p>Le tableau qui suit fait un récapitulatif des services fournis par les différentes bibliothèques du SDK qui sont utilisées par <em>JumpingSumoPiloting</em></p>
 
 <table>
 <thead>
 <tr>
-<th>Librairies</th>
+<th>bibliothèques</th>
 <th>Services</th>
 </tr>
 </thead>
@@ -1082,16 +383,27 @@ $ ./JumpingSumoPiloting
 </tbody>
 </table>
 
-<p><a href="http://developer.parrot.com/docs/bebop/#organisation">Pour en savoir plus sur les autres librairies </a></p>
+<p><a href="http://developer.parrot.com/docs/bebop/#organisation">Pour en savoir plus sur les autres bibliothèques </a></p>
 
 <p><a href="http://www.parrot.com/fr/produits/jumping-sumo/">Pour connaître les caractéristiques techniques du Jumping Sumo</a></p>
 
 <h4>
-<a id="user-content-exemple-dutilisation-sous-android--rollingspiderpiloting" class="anchor" href="#exemple-dutilisation-sous-android--rollingspiderpiloting" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Exemple d'utilisation sous Android : <em>RollingSpiderPiloting</em>
+<a id="exemple-dutilisation-sous-android--rollingspiderpiloting" class="anchor" href="#exemple-dutilisation-sous-android--rollingspiderpiloting" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Exemple d'utilisation sous Android : <em>RollingSpiderPiloting</em>
 </h4>
 
 <p><code>~/ARDroneSDK/packages/Samples/Android/RollingSpiderPiloting</code></p>
 
 <h4>
-<a id="user-content-commandes-et-événements" class="anchor" href="#commandes-et-%C3%A9v%C3%A9nements" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Commandes et événements</h4>
-</article></body></html>
+<a id="commandes-et-événements" class="anchor" href="#commandes-et-%C3%A9v%C3%A9nements" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Commandes et événements</h4>
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/rbary/ParrotSDK_Undergrowth">Parrot SDK Undergrowth</a> is maintained by <a href="https://github.com/rbary">rbary</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
+
+    </section>
+
+  
+  </body>
+</html>
