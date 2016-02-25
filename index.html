@@ -737,11 +737,11 @@ Il faut entendre par "contrôler" le fait d'effectuer les actions suivantes : </
 <li>Faire du mapping 3D</li>
 </ul>
 
-<p><a href="https://raw.githubusercontent.com/rbary/ParrotSDK_Undergrowth/gh-pages/images/parrot/jumpingsumorollingspider.jpg" target="_blank"><img src="https://raw.githubusercontent.com/rbary/ParrotSDK_Undergrowth/gh-pages/images/parrot/jumpingsumorollingspider.jpg" alt="JumpingSumo_RollingSpider" style="max-width:100%;"></a></p>
+<p><a href="https://raw.githubusercontent.com/rbary/ParrotSDK_Undergrowth/gh-pages/images/parrot/jumpingsumorollingspider.jpg" target="_blank"><img src="https://raw.githubusercontent.com/rbary/ParrotSDK_Undergrowth/gh-pages/images/parrot/jumpingsumorollingspider.jpg" alt="" style="max-width:100%;"></a></p>
 
 <p><strong>Exemple d'utilisation du Parrot SDK</strong>: l'application FreeFlight3 qu'il est recommandé d'installer sous Android ou iOS lors de l'achat d'un drone ou minidrone, utilise l'ARDroneSDK3.</p>
 
-<p><a href="https://raw.githubusercontent.com/rbary/ParrotSDK_Undergrowth/gh-pages/images/parrot/freeflight.jpg" target="_blank"><img src="https://raw.githubusercontent.com/rbary/ParrotSDK_Undergrowth/gh-pages/images/parrot/freeflight.jpg" alt="freeflight3" style="max-width:100%;"></a></p>
+<p><a href="https://raw.githubusercontent.com/rbary/ParrotSDK_Undergrowth/gh-pages/images/parrot/freeflight.jpg" target="_blank"><img src="https://raw.githubusercontent.com/rbary/ParrotSDK_Undergrowth/gh-pages/images/parrot/freeflight.jpg" alt="" style="max-width:100%;"></a></p>
 
 <blockquote>
 <p>Est-il possible de créer sa propre application de contrôle de drones avec ce SDK ?"</p>
@@ -860,7 +860,7 @@ $ cd ~/ARDroneSDK
 <p><code>$ repo sync</code></p>
 
 <h3>
-<a id="user-content-Étape-2-le-build-et-la-mise-en-place-des-dépendances" class="anchor" href="#%C3%89tape-2-le-build-et-la-mise-en-place-des-d%C3%A9pendances" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Étape 2: Le Build et la mise en place des dépendances</h3>
+<a id="user-content-Étape-2-le-build" class="anchor" href="#%C3%89tape-2-le-build" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Étape 2: Le Build</h3>
 
 <h4>
 <a id="user-content-pour-une-plateforme-unix" class="anchor" href="#pour-une-plateforme-unix" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Pour une plateforme Unix</h4>
@@ -871,8 +871,8 @@ $ cd ~/ARDroneSDK
 $ ./build.sh -p Unix-forall -t build-sdk-j
 </code></pre>
 
-<p>Le résultat du build sera dans le répertoire <code>~/ARDroneSDK/out/Unix-base/usr</code>
-On peut à présent faire fonctionner les exemples fournis avec le SDK qu'on peut trouver dans le répertoire <code>~/ARDroneSDK/packages/Samples/Unix</code>.</p>
+<p>On aura en sortie du build le répertoire <code>~/ARDroneSDK/out/Unix-base/usr</code>.
+On peut à présent faire fonctionner les exemples sous Unix fournis avec le SDK qu'on peut trouver dans le répertoire <code>~/ARDroneSDK/packages/Samples/Unix</code>.</p>
 
 <h4>
 <a id="user-content-pour-une-plateforme-android" class="anchor" href="#pour-une-plateforme-android" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Pour une plateforme Android</h4>
@@ -888,7 +888,7 @@ On peut à présent faire fonctionner les exemples fournis avec le SDK qu'on peu
 <code>ANDROID_NDK_PATH</code> pour pointer sur les répertoires correspondants aux outils respectifs.</li>
 </ul>
 
-<p>Nous utiliserons <a href="http://developer.android.com/sdk/index.html#top">Android Studio</a>) pour notre exemple. C'est un bundle avec lequel on peut avoir de base Android SDK.</p>
+<p>Nous utiliserons <a href="http://developer.android.com/sdk/index.html#top">Android Studio</a>) pour notre exemple. C'est un bundle avec lequel on peut avoir de base une installation de Android SDK.</p>
 
 <h5>
 <a id="user-content-installer-android-studio-et-android-sdk" class="anchor" href="#installer-android-studio-et-android-sdk" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Installer Android Studio et Android SDK</h5>
@@ -901,7 +901,7 @@ $ ./studio.sh
 
 <p>Android studio vous indiquera qu'il vous manque Android SDK. Faites <code>next</code> pour l'installer.</p>
 
-<p><a href="https://raw.githubusercontent.com/rbary/ParrotSDK_Undergrowth/gh-pages/images/parrot/install_android_sdk.png" target="_blank"><img src="https://raw.githubusercontent.com/rbary/ParrotSDK_Undergrowth/gh-pages/images/parrot/install_android_sdk.png" alt="Install Android SDK" style="max-width:100%;"></a></p>
+<p><a href="https://raw.githubusercontent.com/rbary/ParrotSDK_Undergrowth/gh-pages/images/parrot/install_android_sdk.png" target="_blank"><img src="https://raw.githubusercontent.com/rbary/ParrotSDK_Undergrowth/gh-pages/images/parrot/install_android_sdk.png" alt="" style="max-width:100%;"></a></p>
 
 <p>Vous pouvez choisir l'emplacement qui vous convient; Notons qu'il est préférable de l'installer à l'extérieur de android-studio
 Puis vous faites <code>finish</code>.</p>
@@ -909,8 +909,9 @@ Puis vous faites <code>finish</code>.</p>
 <h5>
 <a id="user-content-installer-android-ndk" class="anchor" href="#installer-android-ndk" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Installer Android NDK</h5>
 
-<p>Android NDK est un ensemble d'outils permettant d'implémenter une partie d'une application avec du code natif C ou C++. Nous installerons Android NDK à la racine de notre répertoire personnel.
-Commencez par télécharger le paquet correspondant depuis ce <a href="http://developer.android.com/ndk/downloads/index.html">lien</a> et suivez les instructions d'installation</p>
+<p>Android NDK est un ensemble d'outils permettant d'implémenter une partie d'une application avec du code natif C ou C++. Nous installerons Android NDK à la racine de notre répertoire personnel.</p>
+
+<p>Commencez par télécharger le paquet correspondant depuis ce <a href="http://developer.android.com/ndk/downloads/index.html">lien</a> et suivez les instructions d'installation</p>
 
 <h5>
 <a id="user-content-déclarer-les-variables-denvironnement" class="anchor" href="#d%C3%A9clarer-les-variables-denvironnement" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Déclarer les variables d'environnement</h5>
@@ -922,13 +923,13 @@ On a donc Android SDK et Android NDK installés respectivement aux emplacements
 On renseigne les variables d'environnement nécessaires (<code>ANDROID_SDK_PATH</code> et 
 <code>ANDROID_NDK_PATH</code>) avec ces chemins dans le fichier /etc/environnement en root comme ceci:</p>
 
-<p><a href="https://raw.githubusercontent.com/rbary/ParrotSDK_Undergrowth/gh-pages/images/parrot/android_sdk_ndk_path.png" target="_blank"><img src="https://raw.githubusercontent.com/rbary/ParrotSDK_Undergrowth/gh-pages/images/parrot/android_sdk_ndk_path.png" alt="Android SDK NDK Path" style="max-width:100%;"></a></p>
+<p><a href="https://raw.githubusercontent.com/rbary/ParrotSDK_Undergrowth/gh-pages/images/parrot/android_sdk_ndk_path.png" target="_blank"><img src="https://raw.githubusercontent.com/rbary/ParrotSDK_Undergrowth/gh-pages/images/parrot/android_sdk_ndk_path.png" alt="" style="max-width:100%;"></a></p>
 
 <p>Ensuite <code>$ source /etc/environnement</code>.</p>
 
 <p>Puis on vérifie, qu'elles ont été déclarées:</p>
 
-<p><a href="https://raw.githubusercontent.com/rbary/ParrotSDK_Undergrowth/gh-pages/images/parrot/android_sdk_ndk_path_check.png" target="_blank"><img src="https://raw.githubusercontent.com/rbary/ParrotSDK_Undergrowth/gh-pages/images/parrot/android_sdk_ndk_path_check.png" alt="Android SDK NDK Path Check" style="max-width:100%;"></a></p>
+<p><a href="https://raw.githubusercontent.com/rbary/ParrotSDK_Undergrowth/gh-pages/images/parrot/android_sdk_ndk_path_check.png" target="_blank"><img src="https://raw.githubusercontent.com/rbary/ParrotSDK_Undergrowth/gh-pages/images/parrot/android_sdk_ndk_path_check.png" alt="" style="max-width:100%;"></a></p>
 
 <p>On peut dès lors builder notre Parrot SDK pour Android. On refait les mêmes manipulations de l'étape 1 en donnant un autre nom au répertoire qui va recevoir le SDK. <code>ARDroneSDK-Android</code> par exemple.</p>
 
@@ -967,6 +968,9 @@ $ repo sync
 <p>Nous nous contenterons ici, pour le moment, de faire fonctionner l'un des exemples d'utilisation livré avec le SDK, en l’occurrence 
 <em>JumpingSumoPiloting</em>.</p>
 
+<h5>
+<a id="user-content-mise-en-place-des-dépendances" class="anchor" href="#mise-en-place-des-d%C3%A9pendances" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Mise en place des dépendances</h5>
+
 <p>A ce jour, les instructions décrites sur le <a href="http://developer.parrot.com/docs/bebop/?c#general-build">site des développeurs Parrot</a> pour faire fonctionner les exemples du SDK, sont sans issue, du moins pour Unix.
 Les "Makefiles" des exemples sous Unix n'étant pas à jour par rapport à l'architecture du SDK, il faudra y effectuer quelques modifications, et faire  ensuite quelques builds atomiques pour les bibliothèques manquantes.
 Focalisons nous à présent sur les manipulations à faire pour l'exemple "Jumping Sumo Piloting".</p>
@@ -992,7 +996,7 @@ LIBS_DBG=-L$(SDK_DIR)/out/Unix-base/staging/usr/lib -larsal_dbg -larcommands_dbg
 <p><em>Problème</em> : La bibliothèque <code>libardiscovery</code> est manquante dans le répertoire 
 <code>~/ARDroneSDK/out/Unix-base/staging/usr/lib</code> qui contient l'ensemble des bibliothèques qui ont été construites pour la plateforme Unix lors du Build complet du SDK.</p>
 
-<p><a href="https://raw.githubusercontent.com/rbary/ParrotSDK_Undergrowth/gh-pages/images/parrot/libardiscovery_miss.png" target="_blank"><img src="https://raw.githubusercontent.com/rbary/ParrotSDK_Undergrowth/gh-pages/images/parrot/libardiscovery_miss.png" alt="libardiscovery" style="max-width:100%;"></a></p>
+<p><a href="https://raw.githubusercontent.com/rbary/ParrotSDK_Undergrowth/gh-pages/images/parrot/libardiscovery_miss.png" target="_blank"><img src="https://raw.githubusercontent.com/rbary/ParrotSDK_Undergrowth/gh-pages/images/parrot/libardiscovery_miss.png" alt="" style="max-width:100%;"></a></p>
 
 <p><em>Solution</em> : Faire un build élémentaire pour cette bibliothèque.</p>
 
@@ -1011,7 +1015,7 @@ $ make install
 
 <p>Le résultat attendu est le suivant :</p>
 
-<p><a href="https://raw.githubusercontent.com/rbary/ParrotSDK_Undergrowth/gh-pages/images/parrot/libardiscovery_lib_include.png" target="_blank"><img src="https://raw.githubusercontent.com/rbary/ParrotSDK_Undergrowth/gh-pages/images/parrot/libardiscovery_lib_include.png" alt="libardiscovery" style="max-width:100%;"></a></p>
+<p><a href="https://raw.githubusercontent.com/rbary/ParrotSDK_Undergrowth/gh-pages/images/parrot/libardiscovery_lib_include.png" target="_blank"><img src="https://raw.githubusercontent.com/rbary/ParrotSDK_Undergrowth/gh-pages/images/parrot/libardiscovery_lib_include.png" alt="" style="max-width:100%;"></a></p>
 
 <p><code>libardiscovery</code> est bien installé dans le répertoire 
 <code>~/ARDroneSDK/out/Unix-base/staging/usr/lib</code> et les headers correspondants (qui pourront être utilisés par d'autres bibliothèques) le sont aussi dans le répertoire <code>~/ARDroneSDK/out/Unix-base/staging/usr/include</code></p>
@@ -1027,6 +1031,9 @@ $ make install
 <pre><code>$ sudo apt-get update
 $ sudo apt-get install ncurses-dev
 </code></pre>
+
+<h5>
+<a id="user-content-mise-en-marche" class="anchor" href="#mise-en-marche" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Mise en marche</h5>
 
 <p>Notre SDK étant installé correctement, les problèmes de dépendances ayant été résolus, on peut à présent faire tourner notre example <em>JumpingSumoPiloting</em>.</p>
 
@@ -1063,7 +1070,7 @@ $ ./JumpingSumoPiloting
 <p>Que fait JumpingSumoPiloting ?</p>
 </blockquote>
 
-<p><em>JumpingSumoPiloting</em> est un exemple basique d'utilisation du SDK qui permet de réaliser les actions suivantes:</p>
+<p><em>JumpingSumoPiloting</em> est un exemple basique d'utilisation du Parrot SDK qui permet de réaliser les actions suivantes:</p>
 
 <ul>
 <li>rechercher un mini drone aux alentours (notre Jumping Sumo)</li>
@@ -1113,8 +1120,34 @@ $ ./JumpingSumoPiloting
 <a id="user-content-exemple-dutilisation-sous-android--rollingspiderpiloting" class="anchor" href="#exemple-dutilisation-sous-android--rollingspiderpiloting" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Exemple d'utilisation sous Android : <em>RollingSpiderPiloting</em>
 </h4>
 
-<p><code>~/ARDroneSDK/packages/Samples/Android/RollingSpiderPiloting</code></p>
+<p>Par analogie à l'exemple sous Unix, nous nous focaliserons sur 
+<em>RollingSpiderPiloting</em>. C'est un exemple également basique d'utilisation du Parrot SDK dans un projet de développement d'application Android (Dans Android Studio por nous). Le répertoire correspondant est celui-ci:
+<code>~/ARDroneSDK-Android/packages/Samples/Android/RollingSpiderPiloting</code></p>
 
-<h4>
-<a id="user-content-commandes-et-événements" class="anchor" href="#commandes-et-%C3%A9v%C3%A9nements" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Commandes et événements</h4>
+<p>Commencons par créer un nouveau projet dans Android Studio pour <em>RollingSpiderPiloting</em>.</p>
+
+<ol>
+<li><p>Lancer Android Studio avec <code>$ android-studio/bin/studio.sh</code> et démarrer un nouveau projet.
+<a href="https://raw.githubusercontent.com/rbary/ParrotSDK_Undergrowth/gh-pages/images/parrot/android_new_project.png" target="_blank"><img src="https://raw.githubusercontent.com/rbary/ParrotSDK_Undergrowth/gh-pages/images/parrot/android_new_project.png" alt="" style="max-width:100%;"></a></p></li>
+<li><p>Renseigner le nom de notre projet et faire <code>next</code>.
+<a href="https://raw.githubusercontent.com/rbary/ParrotSDK_Undergrowth/gh-pages/images/parrot/android_create_rspiloting.png" target="_blank"><img src="https://raw.githubusercontent.com/rbary/ParrotSDK_Undergrowth/gh-pages/images/parrot/android_create_rspiloting.png" alt="" style="max-width:100%;"></a></p></li>
+<li><p>Choisir Jelly Bean pour la version du Android SDK de préférence et faire <code>next</code>.
+<a href="https://raw.githubusercontent.com/rbary/ParrotSDK_Undergrowth/gh-pages/images/parrot/android_jellybean_choice.png" target="_blank"><img src="https://raw.githubusercontent.com/rbary/ParrotSDK_Undergrowth/gh-pages/images/parrot/android_jellybean_choice.png" alt="" style="max-width:100%;"></a></p></li>
+<li><p>Choisissez <code>add no activity</code> sur la fenêtre suivante et faites <code>finish</code>.</p></li>
+</ol>
+
+<h5>
+<a id="user-content-mise-en-place-des-dépendances-1" class="anchor" href="#mise-en-place-des-d%C3%A9pendances-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Mise en place des dépendances</h5>
+
+<p>Nous allons, à présent mettre en place les dépendances nécessaires dans notre projet vide Android.</p>
+
+<ol>
+<li><p>Dans Android Studio, ouvrez votre explorateur de projet, et éditez le fichier <code>Build.gradle(Module: app)</code> comme ceci :
+<a href="https://raw.githubusercontent.com/rbary/ParrotSDK_Undergrowth/gh-pages/images/parrot/android_edit_gradle_app.png" target="_blank"><img src="https://raw.githubusercontent.com/rbary/ParrotSDK_Undergrowth/gh-pages/images/parrot/android_edit_gradle_app.png" alt="" style="max-width:100%;"></a></p></li>
+<li><p>On peut à présent charger les bibliothèques de notre SDK avec le code 
+<code>ARSDK.loadSDKLibs();</code></p></li>
+</ol>
+
+<h5>
+<a id="user-content-mise-en-marche-1" class="anchor" href="#mise-en-marche-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Mise en marche</h5>
 </article></body></html>
