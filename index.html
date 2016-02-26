@@ -724,7 +724,7 @@ pre {
 </style><title>index</title></head><body><article class="markdown-body"><h2>
 <a id="user-content-parrot-sdk-prise-en-main-et-possibilités-dutilisation" class="anchor" href="#parrot-sdk-prise-en-main-et-possibilit%C3%A9s-dutilisation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Parrot SDK: Prise en main et possibilités d'utilisation</h2>
 
-<p>ARDroneSDK3 est à ce jour la dernière version du Parrot SDK, publiée en novembre 2014. Pour faire simple, ce SDK permet de contrôler la plupart des drones et/ou minidrones de Parrot (Rolling Spider, Bebop Drone, Skycontroller, Jumping Sumo).
+<p>ARDroneSDK3 est à ce jour la dernière version du Parrot SDK (version 3.8), publiée en novembre 2014. Pour faire simple, ce SDK permet de contrôler la plupart des drones et/ou minidrones de Parrot (Rolling Spider, Bebop Drone, Skycontroller, Jumping Sumo).
 Il faut entendre par "contrôler" le fait d'effectuer les actions suivantes : </p>
 
 <ul>
@@ -939,12 +939,17 @@ $ repo init -u https://github.com/Parrot-Developers/arsdk_manifests.git
 $ repo sync
 </code></pre>
 
-<p>Puis on fait le Build:</p>
+<p>Pour préparer la mise en marche de notre example d'utilisation du SDK sous Android nous allons en plus du build des bibliothèques du SDK, construire les dépendances également pour les examples (Build JNI, Exécution Gradlew assembledebug pour Android Studio). Donc, à la racine de <code>~ARDroneSDK-Android</code> nous ferons </p>
+
+<pre><code>$ ./build.sh -p Android-forall -t build-sample -j
+</code></pre>
+
+<p>Au lieu de faire </p>
 
 <pre><code>$ ./build.sh -p Android-forall -t build-sdk -j
 </code></pre>
 
-<p>Vous pouvez aller vous prendre un café car le build pour Android prend une bonne dizaine de minutes.</p>
+<p>Vous pouvez aller vous prendre un café car le build pour Android prend une bonne dizaine de minutes ...</p>
 
 <p>Ce build nous donnera en sortie plusieurs répertoires 
 <code>~/ARDroneSDK-Android/out/Android-[VARIANTE]/staging/usr</code></p>
@@ -1121,32 +1126,43 @@ $ ./JumpingSumoPiloting
 </h4>
 
 <p>Par analogie à l'exemple sous Unix, nous nous focaliserons sur 
-<em>RollingSpiderPiloting</em>. C'est un exemple également basique d'utilisation du Parrot SDK dans un projet de développement d'application Android (Dans Android Studio por nous). Le répertoire correspondant est celui-ci:
-<code>~/ARDroneSDK-Android/packages/Samples/Android/RollingSpiderPiloting</code></p>
-
-<p>Commencons par créer un nouveau projet dans Android Studio pour <em>RollingSpiderPiloting</em>.</p>
-
-<ol>
-<li><p>Lancer Android Studio avec <code>$ android-studio/bin/studio.sh</code> et démarrer un nouveau projet.
-<a href="https://raw.githubusercontent.com/rbary/ParrotSDK_Undergrowth/gh-pages/images/parrot/android_new_project.png" target="_blank"><img src="https://raw.githubusercontent.com/rbary/ParrotSDK_Undergrowth/gh-pages/images/parrot/android_new_project.png" alt="" style="max-width:100%;"></a></p></li>
-<li><p>Renseigner le nom de notre projet et faire <code>next</code>.
-<a href="https://raw.githubusercontent.com/rbary/ParrotSDK_Undergrowth/gh-pages/images/parrot/android_create_rspiloting.png" target="_blank"><img src="https://raw.githubusercontent.com/rbary/ParrotSDK_Undergrowth/gh-pages/images/parrot/android_create_rspiloting.png" alt="" style="max-width:100%;"></a></p></li>
-<li><p>Choisir Jelly Bean pour la version du Android SDK de préférence et faire <code>next</code>.
-<a href="https://raw.githubusercontent.com/rbary/ParrotSDK_Undergrowth/gh-pages/images/parrot/android_jellybean_choice.png" target="_blank"><img src="https://raw.githubusercontent.com/rbary/ParrotSDK_Undergrowth/gh-pages/images/parrot/android_jellybean_choice.png" alt="" style="max-width:100%;"></a></p></li>
-<li><p>Choisissez <code>add no activity</code> sur la fenêtre suivante et faites <code>finish</code>.</p></li>
-</ol>
+<em>RollingSpiderPiloting</em>. C'est un exemple également basique d'utilisation du Parrot SDK dans un projet de développement d'application Android. </p>
 
 <h5>
-<a id="user-content-mise-en-place-des-dépendances-1" class="anchor" href="#mise-en-place-des-d%C3%A9pendances-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Mise en place des dépendances</h5>
+<a id="user-content-mise-en-place" class="anchor" href="#mise-en-place" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Mise en place</h5>
 
-<p>Nous allons, à présent mettre en place les dépendances nécessaires dans notre projet vide Android.</p>
+<p>Commençons par lancer Android Studio avec <code>$ ~/android-studio/bin/studio.sh</code> et importez notre exemple comme ceci:
+<a href="https://raw.githubusercontent.com/rbary/ParrotSDK_Undergrowth/gh-pages/images/parrot/open_existing_project.png"></a></p>
 
-<ol>
-<li><p>Dans Android Studio, ouvrez votre explorateur de projet, et éditez le fichier <code>Build.gradle(Module: app)</code> comme ceci :
-<a href="https://raw.githubusercontent.com/rbary/ParrotSDK_Undergrowth/gh-pages/images/parrot/android_edit_gradle_app.png" target="_blank"><img src="https://raw.githubusercontent.com/rbary/ParrotSDK_Undergrowth/gh-pages/images/parrot/android_edit_gradle_app.png" alt="" style="max-width:100%;"></a></p></li>
-<li><p>On peut à présent charger les bibliothèques de notre SDK avec le code 
-<code>ARSDK.loadSDKLibs();</code></p></li>
-</ol>
+<p>Ouvrez l'explorateur projet, on voit bien que les dépendences aux librairies du SDK Parrot sont effectivement établies. Ouvrez le fichier 
+<code>build.gradle (Module: app)</code> puis dans <code>dependencies { }</code> remplacez les lignes
+suivantes </p>
+
+<pre><code>    compile project(':libARCommands')
+    compile project(':libARDiscovery')
+    compile project(':libARNetwork')
+    compile project(':libARNetworkAL')
+    compile project(':libARSAL')
+</code></pre>
+
+<p>par <code>compile 'com.parrot:arsdk:3.8.3'</code></p>
+
+<p>Dans <code>defaultConfig{ ...}</code> rajoutez la ligne <code>multiDexEnabled true</code> pour activer le support MultiDex [explication]() et mettez à jour 
+<code>build.gradle</code> avec <code>Sync now</code></p>
+
+<p><a href="https://raw.githubusercontent.com/rbary/ParrotSDK_Undergrowth/gh-pages/images/parrot/buildgradle_sync.png"></a></p>
+
+<p>Editez le fichier <code>MainActivity.java</code> qui se trouve dans 
+<code>app &gt; src &gt; main &gt; java &gt; com &gt; parrot &gt; rollingspiderpiloting</code> en modifiant les lignes suivantes:</p>
+
+<pre><code>87. ArrayAdapter&lt;String&gt; adapter = new ArrayAdapter&lt;String&gt;(MainActivity.this, android.R.layout.simple_list_item_1, android.R.id.text1, deviceNameList);
+
+285.  ArrayAdapter&lt;String&gt; adapter = new ArrayAdapter&lt;String&gt;(MainActivity.this, android.R.layout.simple_list_item_1, android.R.id.text1, deviceNameList);
+</code></pre>
+
+<p>Ensuite vous faites <code>Build &gt; Clean Project</code></p>
+
+<p>On peut à présent faire <code>Run</code> et choisir son appareil de déploiement (Tablette/Smartphone Android ou Appareil Virtuel de l'emulateur)</p>
 
 <h5>
 <a id="user-content-mise-en-marche-1" class="anchor" href="#mise-en-marche-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Mise en marche</h5>

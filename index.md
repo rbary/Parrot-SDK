@@ -1,6 +1,6 @@
 ## Parrot SDK: Prise en main et possibilités d'utilisation
 
-ARDroneSDK3 est à ce jour la dernière version du Parrot SDK, publiée en novembre 2014. Pour faire simple, ce SDK permet de contrôler la plupart des drones et/ou minidrones de Parrot (Rolling Spider, Bebop Drone, Skycontroller, Jumping Sumo).
+ARDroneSDK3 est à ce jour la dernière version du Parrot SDK (version 3.8), publiée en novembre 2014. Pour faire simple, ce SDK permet de contrôler la plupart des drones et/ou minidrones de Parrot (Rolling Spider, Bebop Drone, Skycontroller, Jumping Sumo).
 Il faut entendre par "contrôler" le fait d'effectuer les actions suivantes : 
 + Se connecter à un drone
 + Piloter un drone
@@ -173,12 +173,18 @@ $ cd ~/ARDroneSDK-Android
 $ repo init -u https://github.com/Parrot-Developers/arsdk_manifests.git
 $ repo sync
 ```
-Puis on fait le Build:
+Pour préparer la mise en marche de notre example d'utilisation du SDK sous Android nous allons en plus du build des bibliothèques du SDK, construire les dépendances également pour les examples (Build JNI, Exécution Gradlew assembledebug pour Android Studio). Donc, à la racine de `~ARDroneSDK-Android` nous ferons 
+
+```
+$ ./build.sh -p Android-forall -t build-sample -j
+```
+Au lieu de faire 
 ```
 $ ./build.sh -p Android-forall -t build-sdk -j
 ```
 
-Vous pouvez aller vous prendre un café car le build pour Android prend une bonne dizaine de minutes.
+
+Vous pouvez aller vous prendre un café car le build pour Android prend une bonne dizaine de minutes ...
 
 Ce build nous donnera en sortie plusieurs répertoires 
 `~/ARDroneSDK-Android/out/Android-[VARIANTE]/staging/usr`
@@ -188,7 +194,6 @@ Les valeurs possibles pour [VARIANTE] étant:
 + armeabi_v7a
 + mips
 + x86
-
 
 
 ### Étape 3: Utilisation du SDK
@@ -324,32 +329,56 @@ Le tableau qui suit fait un récapitulatif des services fournis par les différe
 #### Exemple d'utilisation sous Android : *RollingSpiderPiloting*
 
 Par analogie à l'exemple sous Unix, nous nous focaliserons sur 
-*RollingSpiderPiloting*. C'est un exemple également basique d'utilisation du Parrot SDK dans un projet de développement d'application Android (Dans Android Studio por nous). Le répertoire correspondant est celui-ci:
-`~/ARDroneSDK-Android/packages/Samples/Android/RollingSpiderPiloting`
+*RollingSpiderPiloting*. C'est un exemple également basique d'utilisation du Parrot SDK dans un projet de développement d'application Android. 
 
-Commencons par créer un nouveau projet dans Android Studio pour *RollingSpiderPiloting*.
+##### Mise en place
 
-1. Lancer Android Studio avec `$ android-studio/bin/studio.sh` et démarrer un nouveau projet.
-![](https://raw.githubusercontent.com/rbary/ParrotSDK_Undergrowth/gh-pages/images/parrot/android_new_project.png)
+Commençons par lancer Android Studio avec `$ ~/android-studio/bin/studio.sh` et importez notre exemple comme ceci:
+[](https://raw.githubusercontent.com/rbary/ParrotSDK_Undergrowth/gh-pages/images/parrot/open_existing_project.png)
 
-2. Renseigner le nom de notre projet et faire `next`.
-![](https://raw.githubusercontent.com/rbary/ParrotSDK_Undergrowth/gh-pages/images/parrot/android_create_rspiloting.png)
+Ouvrez l'explorateur projet, on voit bien que les dépendences aux librairies du SDK Parrot sont effectivement établies. Ouvrez le fichier 
+`build.gradle (Module: app)` puis dans `dependencies { }` remplacez les lignes
+suivantes 
 
-3. Choisir Jelly Bean pour la version du Android SDK de préférence et faire `next`.
-![](https://raw.githubusercontent.com/rbary/ParrotSDK_Undergrowth/gh-pages/images/parrot/android_jellybean_choice.png)
+```
+    compile project(':libARCommands')
+    compile project(':libARDiscovery')
+    compile project(':libARNetwork')
+    compile project(':libARNetworkAL')
+    compile project(':libARSAL')
+```
+par `compile 'com.parrot:arsdk:3.8.3'`
 
-4. Choisissez `add no activity` sur la fenêtre suivante et faites `finish`.
+Dans `defaultConfig{ ...}` rajoutez la ligne `multiDexEnabled true` pour activer le support MultiDex ![explication]() et mettez à jour 
+`build.gradle` avec `Sync now`
+
+[](https://raw.githubusercontent.com/rbary/ParrotSDK_Undergrowth/gh-pages/images/parrot/buildgradle_sync.png)
+
+Editez le fichier `MainActivity.java` qui se trouve dans 
+`app > src > main > java > com > parrot > rollingspiderpiloting` en modifiant les lignes suivantes:
+```
+87. ArrayAdapter<String> adapter = new ArrayAdapter<String>(MainActivity.this, android.R.layout.simple_list_item_1, android.R.id.text1, deviceNameList);
+
+285.  ArrayAdapter<String> adapter = new ArrayAdapter<String>(MainActivity.this, android.R.layout.simple_list_item_1, android.R.id.text1, deviceNameList);
+```
+Ensuite vous faites `Build > Clean Project`
+
+On peut à présent faire `Run` et choisir son appareil de déploiement (Tablette/Smartphone Android ou Appareil Virtuel de l'emulateur)
 
 
-##### Mise en place des dépendances
 
-Nous allons, à présent mettre en place les dépendances nécessaires dans notre projet vide Android.
 
-1. Dans Android Studio, ouvrez votre explorateur de projet, et éditez le fichier `Build.gradle(Module: app)` comme ceci :
-![](https://raw.githubusercontent.com/rbary/ParrotSDK_Undergrowth/gh-pages/images/parrot/android_edit_gradle_app.png)
 
-2. On peut à présent charger les bibliothèques de notre SDK avec le code 
-`ARSDK.loadSDKLibs();`
+
+
+
+
+
+
+
+
+
+
 
 ##### Mise en marche
 
