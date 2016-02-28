@@ -334,7 +334,7 @@ Par analogie à l'exemple sous Unix, nous nous focaliserons sur
 ##### Mise en place
 
 Commençons par lancer Android Studio avec `$ ~/android-studio/bin/studio.sh` et importez notre exemple comme ceci:
-[](https://raw.githubusercontent.com/rbary/ParrotSDK_Undergrowth/gh-pages/images/parrot/open_existing_project.png)
+![](https://raw.githubusercontent.com/rbary/ParrotSDK_Undergrowth/gh-pages/images/parrot/open_existing_project.png)
 
 Ouvrez l'explorateur projet, on voit bien que les dépendences aux librairies du SDK Parrot sont effectivement établies. Ouvrez le fichier 
 `build.gradle (Module: app)` puis dans `dependencies { }` remplacez les lignes
@@ -352,7 +352,7 @@ par `compile 'com.parrot:arsdk:3.8.3'`
 Dans `defaultConfig{ ...}` rajoutez la ligne `multiDexEnabled true` pour activer le support MultiDex ![explication]() et mettez à jour 
 `build.gradle` avec `Sync now`
 
-[](https://raw.githubusercontent.com/rbary/ParrotSDK_Undergrowth/gh-pages/images/parrot/buildgradle_sync.png)
+![](https://raw.githubusercontent.com/rbary/ParrotSDK_Undergrowth/gh-pages/images/parrot/buildgradle_sync.png)
 
 Editez le fichier `MainActivity.java` qui se trouve dans 
 `app > src > main > java > com > parrot > rollingspiderpiloting` en modifiant les lignes suivantes:
