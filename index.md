@@ -257,7 +257,7 @@ Le résultat attendu est le suivant :
 
 Remarque : Le répertoire `~/ARDroneSDK/package/` en plus de contenir des exemples de fonctionnement du SDK, comprend également les sources de toutes les bibliothèques du SDK. S'il vous manque, une bibliothèque pour un exemple donné il vous suffira de refaire la manipulation précédente pour la bibliothèque concernée.
 
-On peut remarquer que dans le Makefile, que notre exemple dépend d'une bibliothèque externe : [`libncurses` ](http://arnaud-feltz.developpez.com/tutoriels/ncurses/?page=introduction#LI-A)
+On peut remarquer que dans le Makefile, que notre exemple dépend d'une bibliothèque externe, permettant de disposer d'une interface dans un terminal texte et aussi d'utiliser la souris ainsi que les touches de fonctions du clavier : [`libncurses` ](http://arnaud-feltz.developpez.com/tutoriels/ncurses/?page=introduction#LI-A)
 
 ![lncurses](https://raw.githubusercontent.com/rbary/ParrotSDK_Undergrowth/gh-pages/images/parrot/lncurses.png)
 
@@ -305,7 +305,7 @@ sudo ln -s ~/ARDroneSDK/out/Unix-base/staging/usr/lib/libardiscovery-3.1.0.so
 
 >Que fait JumpingSumoPiloting ?
 
-*JumpingSumoPiloting* est un exemple basique d'utilisation du Parrot SDK qui permet de réaliser les actions suivantes:
+*JumpingSumoPiloting* est un exemple simple d'utilisation du Parrot SDK qui permet de réaliser les actions suivantes:
 
 + rechercher un mini drone aux alentours (notre Jumping Sumo)
 + se connecter au minidrone (ici en wifi)
@@ -331,7 +331,7 @@ Le tableau qui suit fait un récapitulatif des services fournis par les différe
 Par analogie à l'exemple sous Unix, nous nous focaliserons sur 
 *RollingSpiderPiloting*. C'est un exemple également basique d'utilisation du Parrot SDK dans un projet de développement d'application Android. 
 
-##### Mise en place
+##### Mise en place et mise en fonctionnement
 
 Commençons par lancer Android Studio avec `$ ~/android-studio/bin/studio.sh` et importez notre exemple comme ceci:
 ![](https://raw.githubusercontent.com/rbary/ParrotSDK_Undergrowth/gh-pages/images/parrot/open_existing_project.png)
@@ -355,35 +355,60 @@ Dans `defaultConfig{ ...}` rajoutez la ligne `multiDexEnabled true` pour activer
 ![](https://raw.githubusercontent.com/rbary/ParrotSDK_Undergrowth/gh-pages/images/parrot/buildgradle_sync.png)
 
 Editez le fichier `MainActivity.java` qui se trouve dans 
-`app > src > main > java > com > parrot > rollingspiderpiloting` en modifiant les lignes suivantes:
+`app > src > main > java > com > parrot > rollingspiderpiloting` en modifiant les lignes **87** et **285** par:
 ```
-87. ArrayAdapter<String> adapter = new ArrayAdapter<String>(MainActivity.this, android.R.layout.simple_list_item_1, android.R.id.text1, deviceNameList);
-
-285.  ArrayAdapter<String> adapter = new ArrayAdapter<String>(MainActivity.this, android.R.layout.simple_list_item_1, android.R.id.text1, deviceNameList);
+ArrayAdapter<String> adapter = new ArrayAdapter<String>(MainActivity.this, android.R.layout.simple_list_item_1, android.R.id.text1, deviceNameList);
 ```
-Ensuite vous faites `Build > Clean Project`
+Ensuite vous faites `Build > Clean Project`.
 
-On peut à présent faire `Run` et choisir son appareil de déploiement (Tablette/Smartphone Android ou Appareil Virtuel de l'emulateur)
-
-
+On peut à présent faire `Run` et choisir son appareil de déploiement (Tablette/Smartphone Android ou Appareil Virtuel de l'emulateur).
 
 
+#### Focus sur **RSPilotingMin** et **MyJSPilotingMin**:
+MyRSPiloting et MyJSPiloting sont deux implémentations basiques (sans IHM) que nous réalisons pour nous focaliser sur les commandes, essentielles pour contrôler nos minidrones.
 
+##### **RSPilotingMin**
+En cours d'implémentation pour des aspects de connectivité *Bluethooh*
 
+##### **JSPilotingMin**
+Dans cette implémentation, nous nous sommes donc focalisés sur un ensemble minimaliste de commandes, nécessaires pour le contrôle d'un appareil de type 
+**Jumping Sumo**, permettant ainsi de réaliser les taĉhes suivantes :
 
++ Créer un `Discovery Device`
++ Initialiser le `Discovery Device` avec un `Wifi Device`
++ Créer un `Device Controller` avec le `Discovery Device`
++ Supprimer le `Discovery Device`
++ Ajouter une fonction de callback à au `Device Controller`  (on peut le voir comme un listener sur le deviceController) permettant notifier les changements d'état du `Device Controller` (les états possibles ici étant "en marche", "en arrêt") 
++ Ajouter au `Device Controller ` une fonction de callback permettant une notification quand on reçoit une commande venant de l'appareil.
++ Démarrer le `Device Controller`, impliquant une connection wifi entre le drone et notre système Unix.
++ Récupérer l'état courant du `Device Controller`
++ Arrêter de `Device Controller`, impliquant une déconnection wifi entre le drone et notre système Unix.
++ Envoyer les commandes de pilotage suivantes à l'appareil, avec le 
+`Device Controller`:
+    * Sauter
+    * Avancer
+    * Reculer
+    * Tourner à droite
+    * Tourner à gauche
 
+Le tableau suivant récapitule les commandes en C du SDK qui permettent de réaliser les services énumérées en amont et les librairies concernées.
 
-
-
-
-
-
-
-
-##### Mise en marche
-
-
-
+| Services |Librairie du SDK Concernée | Commande associée en C |
+|----------|---------------------------|---------------------|
+| Créer un Discovery Device| libARDiscovery |` ARDISCOVERY_Device_t *ARDISCOVERY_Device_New (eARDISCOVERY_ERROR *error);`|
+| Initaliser un Discovery Device avec un Wifi Device| libARDiscovery |`eARDISCOVERY_ERROR ARDISCOVERY_Device_InitWifi (ARDISCOVERY_Device_t *device, eARDISCOVERY_PRODUCT product, const char *name,const char *address,int port);`|
+| Créer un Device Controller| libARController |`ARCONTROLLER_Device_t *ARCONTROLLER_Device_New (ARDISCOVERY_Device_t *discoveryDevice, eARCONTROLLER_ERROR *error);`|
+| Supprimer un Discovery Device| libARDiscovery |`void ARDISCOVERY_Device_Delete (ARDISCOVERY_Device_t **device);`|
+| Ajouter une fonction de callback à un Device Controller permettant de notifier les changements d'état du Device Controller| libARController | `eARCONTROLLER_ERROR ARCONTROLLER_Device_AddCommandReceivedCallback (ARCONTROLLER_Device_t *deviceController, ARCONTROLLER_DICTIONARY_CALLBACK_t commandReceivedCallback, void *customData);`|
+|Ajouter une fonction de callback à un Device Controller permettant une notification quand on reçoit une commande venant d'un appareil| libARController | `eARCONTROLLER_ERROR ARCONTROLLER_Device_AddStateChangedCallback (ARCONTROLLER_Device_t *deviceController, ARCONTROLLER_Device_StateChangedCallback_t stateChangedCallback, void *customData);`|
+|Démarrer un Device Controller | libARController | `eARCONTROLLER_ERROR ARCONTROLLER_Device_Start (ARCONTROLLER_Device_t *deviceController);`|
+|Arrêter un Device Controller | libARController | `eARCONTROLLER_ERROR ARCONTROLLER_Device_Start (ARCONTROLLER_Device_t *deviceController);`
+|Récupérer l'état d'un Device Controller | libARController | `eARCONTROLLER_DEVICE_STATE ARCONTROLLER_Device_GetState (ARCONTROLLER_Device_t *deviceController, eARCONTROLLER_ERROR *error);`|
+|Envoyer une commande pour faire *Sauter* l'appareil| libARController |`deviceController->jumpingSumo->sendAnimationsJump(deviceController->jumpingSumo,ARCOMMANDS_JUMPINGSUMO_ANIMATIONS_JUMP_TYPE_HIGH);`|
+| Envoyer une commande pour faire *Avancer* l'appareil | libARController |`deviceController->jumpingSumo->setPilotingPCMDFlag(deviceController->jumpingSumo, 1);deviceController->jumpingSumo->setPilotingPCMDSpeed (deviceController->jumpingSumo, 50);`|
+|Envoyer une commande pour faire *Reculer* l'appareil | libARController |`deviceController->jumpingSumo->setPilotingPCMDFlag (deviceController->jumpingSumo, 1);deviceController->jumpingSumo->setPilotingPCMDSpeed (deviceController->jumpingSumo, -50);`|
+|Envoyer une commande pour faire *Tourner à droite* l'appareil|libARController|`deviceController->jumpingSumo->setPilotingPCMDFlag (deviceController->jumpingSumo, 1);deviceController->jumpingSumo->setPilotingPCMDTurn (deviceController->jumpingSumo, 50);`|
+|Envoyer une commande pour faire *Tourner à gauche* l'appareil|libARController|`deviceController->jumpingSumo->setPilotingPCMDFlag (deviceController->jumpingSumo, 1);deviceController->jumpingSumo->setPilotingPCMDTurn (deviceController->jumpingSumo, -50);`|
 
 
 

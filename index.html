@@ -1075,7 +1075,7 @@ $ ./JumpingSumoPiloting
 <p>Que fait JumpingSumoPiloting ?</p>
 </blockquote>
 
-<p><em>JumpingSumoPiloting</em> est un exemple basique d'utilisation du Parrot SDK qui permet de réaliser les actions suivantes:</p>
+<p><em>JumpingSumoPiloting</em> est un exemple simple d'utilisation du Parrot SDK qui permet de réaliser les actions suivantes:</p>
 
 <ul>
 <li>rechercher un mini drone aux alentours (notre Jumping Sumo)</li>
@@ -1129,10 +1129,10 @@ $ ./JumpingSumoPiloting
 <em>RollingSpiderPiloting</em>. C'est un exemple également basique d'utilisation du Parrot SDK dans un projet de développement d'application Android. </p>
 
 <h5>
-<a id="user-content-mise-en-place" class="anchor" href="#mise-en-place" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Mise en place</h5>
+<a id="user-content-mise-en-place-et-mise-en-fonctionnement" class="anchor" href="#mise-en-place-et-mise-en-fonctionnement" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Mise en place et mise en fonctionnement</h5>
 
 <p>Commençons par lancer Android Studio avec <code>$ ~/android-studio/bin/studio.sh</code> et importez notre exemple comme ceci:
-<a href="https://raw.githubusercontent.com/rbary/ParrotSDK_Undergrowth/gh-pages/images/parrot/open_existing_project.png"></a></p>
+<a href="https://raw.githubusercontent.com/rbary/ParrotSDK_Undergrowth/gh-pages/images/parrot/open_existing_project.png" target="_blank"><img src="https://raw.githubusercontent.com/rbary/ParrotSDK_Undergrowth/gh-pages/images/parrot/open_existing_project.png" alt="" style="max-width:100%;"></a></p>
 
 <p>Ouvrez l'explorateur projet, on voit bien que les dépendences aux librairies du SDK Parrot sont effectivement établies. Ouvrez le fichier 
 <code>build.gradle (Module: app)</code> puis dans <code>dependencies { }</code> remplacez les lignes
@@ -1150,20 +1150,106 @@ suivantes </p>
 <p>Dans <code>defaultConfig{ ...}</code> rajoutez la ligne <code>multiDexEnabled true</code> pour activer le support MultiDex [explication]() et mettez à jour 
 <code>build.gradle</code> avec <code>Sync now</code></p>
 
-<p><a href="https://raw.githubusercontent.com/rbary/ParrotSDK_Undergrowth/gh-pages/images/parrot/buildgradle_sync.png"></a></p>
+<p><a href="https://raw.githubusercontent.com/rbary/ParrotSDK_Undergrowth/gh-pages/images/parrot/buildgradle_sync.png" target="_blank"><img src="https://raw.githubusercontent.com/rbary/ParrotSDK_Undergrowth/gh-pages/images/parrot/buildgradle_sync.png" alt="" style="max-width:100%;"></a></p>
 
 <p>Editez le fichier <code>MainActivity.java</code> qui se trouve dans 
-<code>app &gt; src &gt; main &gt; java &gt; com &gt; parrot &gt; rollingspiderpiloting</code> en modifiant les lignes suivantes:</p>
+<code>app &gt; src &gt; main &gt; java &gt; com &gt; parrot &gt; rollingspiderpiloting</code> en modifiant les lignes <strong>87</strong> et <strong>285</strong> par:</p>
 
-<pre><code>87. ArrayAdapter&lt;String&gt; adapter = new ArrayAdapter&lt;String&gt;(MainActivity.this, android.R.layout.simple_list_item_1, android.R.id.text1, deviceNameList);
-
-285.  ArrayAdapter&lt;String&gt; adapter = new ArrayAdapter&lt;String&gt;(MainActivity.this, android.R.layout.simple_list_item_1, android.R.id.text1, deviceNameList);
+<pre><code>ArrayAdapter&lt;String&gt; adapter = new ArrayAdapter&lt;String&gt;(MainActivity.this, android.R.layout.simple_list_item_1, android.R.id.text1, deviceNameList);
 </code></pre>
 
-<p>Ensuite vous faites <code>Build &gt; Clean Project</code></p>
+<p>Ensuite vous faites <code>Build &gt; Clean Project</code>.</p>
 
-<p>On peut à présent faire <code>Run</code> et choisir son appareil de déploiement (Tablette/Smartphone Android ou Appareil Virtuel de l'emulateur)</p>
+<p>On peut à présent faire <code>Run</code> et choisir son appareil de déploiement (Tablette/Smartphone Android ou Appareil Virtuel de l'emulateur).</p>
+
+<h4>
+<a id="user-content-focus-sur-rspilotingmin-et-myjspilotingmin" class="anchor" href="#focus-sur-rspilotingmin-et-myjspilotingmin" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Focus sur <strong>RSPilotingMin</strong> et <strong>MyJSPilotingMin</strong>:</h4>
+
+<p>MyRSPiloting et MyJSPiloting sont deux implémentations basiques (sans IHM) que nous réalisons pour nous focaliser sur les commandes essentielles pour contrôler nos minidrones. Il faut noter que ces programmes ont été avec la mise a jour des API du Parrot SDK.</p>
 
 <h5>
-<a id="user-content-mise-en-marche-1" class="anchor" href="#mise-en-marche-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Mise en marche</h5>
+<a id="user-content-rspilotingmin" class="anchor" href="#rspilotingmin" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><strong>RSPilotingMin</strong>
+</h5>
+
+<p>En cours d'implémentation pour des aspects de connectivité <em>Bluethooh</em></p>
+
+<h5>
+<a id="user-content-jspilotingmin" class="anchor" href="#jspilotingmin" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><strong>JSPilotingMin</strong>
+</h5>
+
+<p>Dans cette implémentation, nous nous sommes donc focalisés sur un ensemble minimaliste de commandes, nécessaires pour le contrôle d'un appareil de type 
+<strong>Jumping Sumo</strong> :</p>
+
+<ul>
+<li>créer un <code>discoveryDevice</code>
+</li>
+<li>rechercher un appareil de type <code>JUMPING SUMO</code> (avec wifi) avec le 
+<code>discoveryDevice</code>
+</li>
+<li>créer un <code>deviceController</code> avec le <code>discoveryDevice</code>
+</li>
+<li>ajouter au <code>deviceController</code> une fonction de callback <code>stateChanged</code> (on peut le voir comme un listener sur le deviceController) permettant notifier les changements d'état du <code>deviceController</code> (les états possibles ici étant "en marche", "en arrêt") </li>
+<li>ajouter au <code>deviceController</code> une fonction de callback <code>commandReceived</code> permettant une notification quand on reçoit une commande venant de l'appareil.</li>
+<li>démarrer le <code>deviceController</code>. Cela implique l'appareillage wifi entre le drone et notre laptop.</li>
+<li>récupérer l'état courant du <code>deviceController</code>
+</li>
+<li>arrêter de <code>deviceController</code>. Cela implique la déconnection wifi entre le drone et notre laptop.</li>
+<li>envoyer les commandes de pilotage suivantes à l'appareil, en passant par :
+
+<ul>
+<li>sauter</li>
+<li>avancer</li>
+<li>réculer</li>
+<li>tourner (à droite/gauche)</li>
+</ul>
+</li>
+</ul>
+
+<div class="highlight highlight-source-c"><pre>#<span class="pl-k">ifndef</span> JSPILOTINGMINCOMMANDS_H_
+#<span class="pl-k">define</span> <span class="pl-en">JSPILOTINGMINCOMMANDS_H_</span>
+
+#<span class="pl-k">include</span> <span class="pl-s"><span class="pl-pds">&lt;</span>libARController/ARController.h<span class="pl-pds">&gt;</span></span>
+#<span class="pl-k">include</span> <span class="pl-s"><span class="pl-pds">&lt;</span>libARDiscovery/ARDiscovery.h<span class="pl-pds">&gt;</span></span>
+
+<span class="pl-c">// called to create a discovery device and implies a JS discovery device creation with Wifi init</span>
+ARDISCOVERY_Device_t <span class="pl-en">createDiscoveryDevice</span>();
+
+<span class="pl-c">// called to create a device controller</span>
+ARCONTROLLER_Device_t <span class="pl-en">createDeviceController</span>(ARDISCOVERY_Device_t *discoveryDevice);
+
+<span class="pl-c">// called to add a state change callback to a device controller to be notified when the device controller starts, stops</span>
+<span class="pl-k">int</span> <span class="pl-en">addStateChangeCallbackToDeviceController</span>(ARCONTROLLER_Device_t *deviceController);
+
+<span class="pl-c">// called to add a command reception callback to a device controller to be notified when a command has been received from JS</span>
+<span class="pl-k">int</span> <span class="pl-en">addCommandReceivedCallbackToDeviceController</span>(ARCONTROLLER_Device_t *deviceController);
+
+<span class="pl-c">// called to start the device controller implies a wifi connection between our system (Unix laptop) and the JS as result</span>
+<span class="pl-k">int</span> <span class="pl-en">startDeviceController</span>(ARCONTROLLER_Device_t *deviceController);
+
+<span class="pl-c">// called to stop the device controller implies a wifi disconnection between our system(Unix laptop) and the JS as result</span>
+<span class="pl-k">int</span> <span class="pl-en">stopDeviceController</span>(ARCONTROLLER_Device_t *deviceController);
+
+<span class="pl-c">// called when a command has been received from the drone</span>
+<span class="pl-k">void</span> <span class="pl-en">commandReceived</span> (eARCONTROLLER_DICTIONARY_KEY commandKey, ARCONTROLLER_DICTIONARY_ELEMENT_t *elementDictionary, <span class="pl-k">void</span> *customData);
+
+<span class="pl-c">// called when the state of the device controller has changed</span>
+<span class="pl-k">void</span> <span class="pl-en">stateChanged</span> (eARCONTROLLER_DEVICE_STATE newState, eARCONTROLLER_ERROR error, <span class="pl-k">void</span> *customData);
+
+<span class="pl-c">// called to send a jump command to the JS</span>
+<span class="pl-k">int</span> <span class="pl-en">sendJumpCommand</span>(ARCONTROLLER_Device_t *deviceController);
+
+<span class="pl-c">// called to send a forward command to the JS</span>
+<span class="pl-k">int</span> <span class="pl-en">sendForwardCommand</span>(ARCONTROLLER_Device_t *deviceController);
+
+<span class="pl-c">// called to send a back command to the JS</span>
+<span class="pl-k">int</span> <span class="pl-en">sendBackCommand</span>(ARCONTROLLER_Device_t *deviceController);
+
+<span class="pl-c">// called to send a right roll command to the JS</span>
+<span class="pl-k">int</span> <span class="pl-en">sendRightRollCommand</span>(ARCONTROLLER_Device_t *deviceController);
+
+<span class="pl-c">// called to send a left roll command to the JS</span>
+<span class="pl-k">int</span> <span class="pl-en">sendLeftRollCommand</span>(ARCONTROLLER_Device_t *deviceController);
+
+#<span class="pl-k">endif</span> <span class="pl-c">/* JSPILOTINGMINCOMMANDS_H_ */</span>
+</pre></div>
 </article></body></html>
